@@ -29,7 +29,7 @@ In addition, this project will include:
 
 ##Wireframes
 
-![WireFrame](sortVisualizerWireFrame.png)
+![WireFrame](https://github.com/pa-dg/Sorting_Algorithmn_Visualizer/blob/master/sortVisualizerWireframe.png)
 
 ##Technologies, Libraries, APIs
 
