@@ -7,7 +7,7 @@
 
 <h4>This applications is a JavaScript Data Visualization engine for visualizing various sorting algorithms. This application features few classic sorting algorithms including bubble sort, quick sort, and merge sort. In addition, an option to simulate two sorting algorithms adjacent to one another for audience interested in the comparison of their time and space complexity is provided. This application was built with a goal in mind of serving as a form of visual aid for developers, educators and students alike.</h4>
 
-##Implemented Sorting Algorithms
+## Implemented Sorting Algorithms
 
 * Bubble Sort
 * Quick Sort
