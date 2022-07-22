@@ -31,7 +31,7 @@ In addition, this project will include:
 
 ![WireFrame](https://github.com/pa-dg/Sorting_Algorithmn_Visualizer/blob/master/sortVisualizerWireframe.png)
 
-##Technologies, Libraries, APIs
+## Technologies, Libraries, APIs
 
 This project will be implemented with the following technologies:
 
