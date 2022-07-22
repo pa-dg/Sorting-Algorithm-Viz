@@ -3,7 +3,7 @@
     <br>
 </h1>
 
-##Background
+## Background
 
 <h4>This applications is a JavaScript Data Visualization engine for visualizing various sorting algorithms. This application features few classic sorting algorithms including bubble sort, quick sort, and merge sort. In addition, an option to simulate two sorting algorithms adjacent to one another for audience interested in the comparison of their time and space complexity is provided. This application was built with a goal in mind of serving as a form of visual aid for developers, educators and students alike.</h4>
 
@@ -13,7 +13,7 @@
 * Quick Sort
 * Merge Sort
 
-##Functionalities & MVPs
+## Functionalities & MVPs
 
 In Sorting Algorithm Visualizer, some of the features available to users include:
 
@@ -27,7 +27,7 @@ In addition, this project will include:
 
 * Instructions and a production README
 
-##Wireframes
+## Wireframes
 
 ![WireFrame](https://github.com/pa-dg/Sorting_Algorithmn_Visualizer/blob/master/sortVisualizerWireframe.png)
 
@@ -39,7 +39,7 @@ This project will be implemented with the following technologies:
 * npm to manage project dependencies
 * Webpack and Babel to bundle and transpile the source Javascript code
 
-##Implementation Timeline
+## Implementation Timeline
 
 * Friday Afternoon & Weekend: Setup project directories and dependecies including getting webpack up and running. Start developing the basic site structure in HTML. Style the webpage in CSS. Starting reading up documentations on D3.js library.
 * Monday: Dedicate this day to start implementing some of the core functionalities in JavaScript. 
@@ -47,4 +47,4 @@ This project will be implemented with the following technologies:
 * Wednesday: For this day, focus on styling your application and playing around with different color schemes. Make some time to rewrite the production README.
 * Thursday Morning: Deploy to Github pages. 
 
-##Bonus features
+## Bonus Features
