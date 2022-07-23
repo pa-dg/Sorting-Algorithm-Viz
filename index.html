@@ -6,11 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
+    
     <script src="./dist/main.js"></script>
     <title>Sorting Algorithm Visualizer</title>
 </head>
 
 <body>
+    <br>
+        <h1>Sorting Algo Visualizer</h1>
+    <br>
+
+    <div class="container">
+        <div class="bars_container">
+            <div class="bar">
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="controllers_container">
+
+        <div id="dropdown">
+            <button class="allbuttons">Sort Using</button>
+                <div class="dropdown-content">
+                    <a href="#">Bubble Sort</a>
+                    <a href="#">Merge Sort</a>
+                    <a href="#">Quick Sort</a>
+                </div>
+        </div>
+        
+        <div class="clickbutton" onclick="ahow()">
+            <button class="allbuttons">Compare Sorting Algorithms</button>
+            <br>
+            <button class="allbuttons">Generate Random Array</button>
+        </div>
+
+        <div class="slider">
+            <span>Size <input 
+                            type="range" 
+                            min="10" 
+                            max="50" 
+                            value="10" 
+                            id="size_slider">
+            <span> 
+            <br>
+            <span>Speed <input 
+                            type="range"
+                            min="0.5x" 
+                            max="2.0x" 
+                            step="0.5px" 
+                            id="speed_slider" 
+                            value="0.5">
+            </span> 
+        </div>
+
+        <div>
+            <button class="playpause_button"></button>
+        </div>
+    </div>
+
 </body>
 
 </html>
