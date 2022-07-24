@@ -1,13 +1,15 @@
 var Algorithms = {
   BUBBLE_SORT: 'bubbleSort',
   MERGE_SORT: 'mergeSort',
-  QUICK_SORT: 'quickSort'
+  QUICK_SORT: 'quickSort',
+  INSERTION_SORT: 'insertionSort'
 }
 
 var Algo_desc = {
   BUBBLE_SORT: 'Bubble sort description',
   MERGE_SORT: 'Merge sort description',
-  QUICK_SORT: 'Quick sort description'
+  QUICK_SORT: 'Quick sort description',
+  INSERTION_SORT: 'Insertion sort description'
 }
 
 class Sort {
