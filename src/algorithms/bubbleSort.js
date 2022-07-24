@@ -1,4 +1,4 @@
-function bubbleSort(array) {
+async function bubbleSort(array) {
     let sorted = false;
 
     while (!sorted) {
