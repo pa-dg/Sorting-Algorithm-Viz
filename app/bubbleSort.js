@@ -10,7 +10,7 @@ async function bubbleSort(array) {
             if (current > next) {
                 sorted = false;
                 array[i] = next;
-                array[j] = current;
+                array[i + 1] = current;
             }
         }
     }
