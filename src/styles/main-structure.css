@@ -5,7 +5,7 @@ body {
 }
 
 .graph_container {
-    background-color: rgba(176, 210, 176, 0.522);
+    background-color: rgba(69, 111, 124, 0.522);
     max-width: 100vw;
     width: 90%;
     margin: 0 auto;
@@ -16,16 +16,16 @@ body {
 }
 
 /* graph controllers container */
-.controllers_container {
-    background-color: rgb(181, 217, 181);
-    max-width: 25%;
-    height: 100x;
-    margin: 30px;
+#controllers_container {
+    background-color: rgb(199, 230, 199);
+    max-width: 30%;
+    height: 80vh;
+    margin: 10px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
+    justify-content: flex-start;
     box-sizing: border-box;
+    flex-wrap: wrap;
 }
 
 /* Dropdown Button */
@@ -97,13 +97,55 @@ body {
     margin: 10px;
 }
 
-/* Play/Pause button */
-.playpause_button {
-    width: 25px;
-    height: 25px;
-    border-style: solid;
-    border-width: 20px 0px 20px 30px;
-    border-color: red blue green yellow;
-    border-color: transparent transparent transparent #202020;
+/* Play button */
+.play-container {
     margin: 10px;
+    width: 3em;
+    height: 3em;
+    background-color: rgba(0, 0, 0, .25);
+    cursor: pointer;
 }
+
+.play-button {
+    margin: 0 auto;
+    top: 20%;
+    position: relative;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 1em 0 1em 2em;
+    border-color: transparent transparent transparent #000;
+    opacity: .75;
+}
+
+.play-container:hover {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.play-container:hover .play-button {
+    opacity: 1;
+}
+
+/* .pause-container {
+    margin: 10px;
+    width: 3em;
+    height: 3em;
+    background-color: rgba(0, 0, 0, .25);
+    cursor: pointer;
+} */
+
+/* .pause-button {
+    margin: 0;
+    width: 18.5px;
+    height: 18.5px;
+    top: 20%;
+    position: relative;
+    border-style: double;
+    border-width: 0px 0px 0px 30px;
+    border-color: transparent transparent transparent #000;
+    opacity: .75;
+}
+
+.pause-container:hover .pause-button {
+    opacity: 1;
+} */
