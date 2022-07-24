@@ -4,7 +4,7 @@ async function quickSort(array) {
     }
     const pivot = array[0];
 
-    let left = arrray.slice(1).filter(el => el < pivot);
+    let left = array.slice(1).filter(el => el < pivot);
     let right = array.slice(1).filter(el => el >= pivot);
     
     left = left.quickSort(array);
