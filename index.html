@@ -5,80 +5,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./dist/main.css" />
-    <script src="./dist/main.js"></script>
+    <link rel="stylesheet" href="./main.css" />
+
     <title>Sorting Algorithm Visualizer</title>
 </head>
 
 <body>
-    <br>
-        <h1>Sorting Algo Visualizer</h1>
-    <br>
+    <h1 class="heading">Sorting Algorithm Visualizer</h1>
 
-    <div class="container">
-        <div class="graph_container">
-            <div class="bars_container">
-                <div class="bar">
-                    
-                </div>
+    <div class="main-content">
+        <div class="sorting-screen">
+            <div id="graph-container" class="graph-container"></div>
+            <div class="graph-description">
+                <h4>Description:</h4>
+                <span>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi fuga, harum, similique quibusdam
+                    aliquid tempore, sunt
+                    vitae repellat quidem cupiditate consequatur voluptatibus! Repellendus esse quibusdam hic nesciunt
+                    alias doloremque
+                    veritatis.
+                </span>
             </div>
         </div>
 
-        <div id="controllers_container">
+        <div class="controllers-container">
+            <button id="compare-single-algo-btn">Compare Algo</button>
 
-            <div id="dropdown">
-                <button class="allbuttons">Sort Using</button>
-                    <div class="dropdown-content">
-                        <a href="#">Bubble Sort</a>
-                        <a href="#">Merge Sort</a>
-                        <a href="#">Quick Sort</a>
-                    </div>
-            </div>
-            
-            <div class="clickbutton" onclick="ahow()">
-                <button class="allbuttons">Compare Sorting Algorithms</button>
-                <br>
-                <button class="allbuttons">Generate Random Array</button>
+            <div>
+                <label for="size">Size</label>
+                <input type="range" min="30" max="50" step="10" value="30" id="size" name="size" />
             </div>
 
-            <div class="slider">
-                <span>Size <input 
-                                type="range" 
-                                min="10" 
-                                max="50" 
-                                value="10" 
-                                id="arr_size">
-                <span> 
-                <br>
-                <span>Speed <input 
-                                type="range"
-                                min="0.5x" 
-                                max="2.0x" 
-                                step="0.5px" 
-                                id="speed_slider" 
-                                value="0.5">
-                </span> 
+            <div>
+                <label for="speed">Speed</label>
+                <input type="range" min="1" max="3" value="1" id="speed" name="speed" />
             </div>
 
-            <div class="play-container">
-                <div id="play-button"></div>
-                <br>
-                <div id="pause-button">
-                    <button>Pause</button>
-                <div class="reset-button">
-                    <button>Reset</button>
-                </div>
-            </div>
+            <button id="play-pause-btn">Play/Pause</button>
 
-            </div>        
-            
+            <button id="reset-btn">Reset</button>
         </div>
     </div>
 
-    <script src="./src/scripts/algorithms/bubbleSort.js"></script>
-    <script src="./src/scripts/algorithms/mergeSort.js"></script>
-    <script src="./src/scripts/algorithms/quickSort.js"></script>
-    
+    <script src="./app/AnimationArray.js"></script>
+    <script src="./app/Sort.js"></script>
+    <script src="./main.js"></script>
+
 </body>
 
 </html>
