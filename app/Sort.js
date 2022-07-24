@@ -59,4 +59,24 @@ class Sort {
   reset() {
     console.log('### RESET EVERYTHING');
   }
+
+  //dea
+  selectAlgo(e) {
+    this.reset();
+    this.sortAlgo = e.currentTarget.id;
+    this.selectDescription(e);
+  }
+  //dea
+  selectDescription(e) {
+    const graphDescription = document.querySelector('graph-description'); //grab graph-description element
+    if (e.currentTarget.id === "#bubbleSort") {   // if algo is BS
+      graphDescription.append(descriptBubbleSort()); // invoke descriptBubbleSort and append to graphDescription
+    } else if (e.currentTarget.id === "#mergeSort") {
+      graphDescription.append(descriptMergeSort());
+    } else if (e.currentTarget.id === "#quickSort") {
+      graphDescription.append(descriptQuickSort());
+    } else {
+      graphDescription.append(descriptInsertionSort());
+    }
+}
 }

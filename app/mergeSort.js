@@ -24,3 +24,16 @@ async function sort(left, right) {
     merged = merged.concat(left, right);
     return merged;
 }
+
+
+//dea
+function descriptMergeSort() {
+    const description = document.createElement("p");
+    description.id = "descript-MS"
+    description.classList.add("graph-description");
+    description.innerText =
+    `Merge sort is a sorting technique based on divide and conquer technique. With worst-case time complexity being Ο(n log n), it is one of the most respected algorithms.
+    Merge sort first divides the array into equal halves and then combines them in a sorted manner.`
+
+    return description;
+}

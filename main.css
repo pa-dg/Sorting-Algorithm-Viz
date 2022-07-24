@@ -1,6 +1,6 @@
 body {
-    background-color: #575759;
-    color: rgb(5, 13, 35);
+    background-color: rgb(52, 52, 52);
+    color: rgb(197, 198, 200);
     margin: 20px;
 }
 
@@ -16,8 +16,9 @@ body {
 
 .sorting-screen {
     margin: 20px;
-    border: 1px solid white;
-    background-color: teal;
+    color: aliceblue;
+    border: 1px solid rgb(10, 10, 10);
+    background-color: rgb(196, 199, 201);
 }
 
 .graph-container {
@@ -25,15 +26,15 @@ body {
     justify-content: center;
     align-items: flex-end;
     border: 1px solid black;
-    background-color: white;
+    background-color: rgb(52, 52, 52);
     height: 300px;
 }
 
 .bar {
     width: 20px;
-    background-color: aqua;
+    background-color: rgb(222, 239, 230);
     border-radius: 2px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin: 0 1px;
 }
 
