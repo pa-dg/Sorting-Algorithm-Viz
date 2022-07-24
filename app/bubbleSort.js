@@ -7,7 +7,7 @@ async function bubbleSort(array) {
         for (let i = 0; i < array.length - 1; i++) {
             let current = array[i];
             let next = array[i + 1];
-            if (next > current) {
+            if (current > next) {
                 sorted = false;
                 array[i] = next;
                 array[j] = current;
