@@ -26,6 +26,8 @@ playStopBtn.addEventListener('click', function() {
 
 resetBtn.addEventListener('click', function() {
   sort.reset();
+
+  playStopBtn.innerText = 'Play';
 })
 
 sizeRange.addEventListener('change', function(event) {
@@ -40,6 +42,6 @@ speedRange.addEventListener('change', function(event) {
 
 selectDropdown.addEventListener('change', function(event) {
     descriptionText.innerText = Algo_desc[event.target.value];
-
+    sort.updateSortAlgo(event.target.value)
 })
 
