@@ -1,24 +1,36 @@
 var Algorithms = {
   BUBBLE_SORT: 'bubbleSort',
-  MERGE_SORT: 'mergeSort',
-  QUICK_SORT: 'quickSort',
   INSERTION_SORT: 'insertionSort'
 }
 
 var Algo_desc = {
-  BUBBLE_SORT: 'Bubble sort description',
-  MERGE_SORT: 'Merge sort description',
-  QUICK_SORT: 'Quick sort description',
-  INSERTION_SORT: 'Insertion sort description'
+  bubbleSort: 
+    'Bubble sort is a simple sorting algorithm. This sorting algorithm is comparison-based algorithm in which each pair of adjacent elements is compared and the elements are swapped if they are not in order. This algorithm is not suitable for large data sets as its average and worst case complexity are of Ο(n^2) where n is the number of items.',
+  insertionSort: 
+    "This is an in-place comparison-based sorting algorithm. Here, a sub-list is maintained which is always sorted. For example, the lower part of an array is maintained to be sorted. An element which is to be 'insert'ed in this sorted sub-list, has to find its appropriate place and then it has to be inserted there. Hence the name, insertion sort. The array is searched sequentially and unsorted items are moved and inserted into the sorted sub-list (in the same array). This algorithm is not suitable for large data sets as its average and worst case complexity are of Ο(n^2), where n is the number of items."
+}
+
+var SortSpeed = {
+  1: 500,
+  2: 450,
+  3: 400,
+  4: 350,
+  5: 300,
+  6: 250,
+  7: 200,
+  8: 150,
+  9: 100,
+  10: 50
 }
 
 class Sort {
-  constructor(size=50, speed, sortAlgo=Algorithms.BUBBLE_SORT) {
-    this.size = size;
-    this.speed = speed;
-    this.sortAlgo = sortAlgo;
-    this.array = this.generateRandomArray(size);
-    this.animationArray = new AnimationArray(this.array);
+  constructor(size=30, speed=1, sortAlgo=Algorithms.BUBBLE_SORT) {
+    this.size = size; // 30, 40, 50 elements/bars
+    this.speed = SortSpeed[speed]; // in milliseconds
+    this.sortAlgo = sortAlgo; // bubblesort for now
+    this.array = this.generateRandomArray(this.size); // logic to generate a shuffled array
+    this.animationArray = new AnimationArray(this.array); // instance of animation array
+    this.isSorting = false; // boolean to determine if were currently sorting
   }
 
   generateRandomArray(size) {
@@ -26,8 +38,6 @@ class Sort {
     for (let i = 0; i < size; i++) {
       a[i] = i + 1;
     }
-
-    // console.log(this.shuffle(a));
     return this.shuffle(a);
   }
 
@@ -44,39 +54,152 @@ class Sort {
       [arr[currentIndex], arr[randomIndex]] = [
         arr[randomIndex], arr[currentIndex]];
     }
-
     return arr;
   }
   
   play() {
-    // starts sorting or resumes from pause
-  }
+    console.log('starting array', this.array);
 
-  pause() {
-    // pauses sorting
+    // catch all in-case bars are not rendered
+    if (!graphContainer.hasChildNodes()) {
+      this.animationArray.renderBars(this.array);
+    }
+    this.isSorting = true;
+    
+    switch (this.sortAlgo) {
+      case "bubbleSort":
+        this.bubbleSort();
+        break;
+    
+      default:
+        break;
+    }
   }
   
   reset() {
-    console.log('### RESET EVERYTHING');
+    this.isSorting = false;
+
+    this.array = this.generateRandomArray(this.size);
+    this.animationArray.resetBars();
+    this.animationArray = new AnimationArray(this.array);
   }
 
-  //dea
-  selectAlgo(e) {
-    this.reset();
-    this.sortAlgo = e.currentTarget.id;
-    this.selectDescription(e);
+  stop() {
+    this.isSorting = false;
   }
-  //dea
-  selectDescription(e) {
-    const graphDescription = document.querySelector('graph-description'); //grab graph-description element
-    if (e.currentTarget.id === "#bubbleSort") {   // if algo is BS
-      graphDescription.append(descriptBubbleSort()); // invoke descriptBubbleSort and append to graphDescription
-    } else if (e.currentTarget.id === "#mergeSort") {
-      graphDescription.append(descriptMergeSort());
-    } else if (e.currentTarget.id === "#quickSort") {
-      graphDescription.append(descriptQuickSort());
-    } else {
-      graphDescription.append(descriptInsertionSort());
+
+  async bubbleSort() {
+    let sorted = false;
+
+    while (!sorted) {
+        sorted = true;
+        for (let i = 0; i < this.array.length - 1; i++) {
+          if (!this.isSorting) break;
+          
+          // current element & its bar representation
+          const current = this.array[i];
+          const currentBar = document.getElementById(`bar-${current}`);
+          
+          // next element & its bar representation
+          const next = this.array[i + 1];
+          const nextBar = document.getElementById(`bar-${next}`);
+          
+          currentBar.style.backgroundColor = 'black';
+          nextBar.style.backgroundColor = 'black';
+          await this.sleep();
+
+          if (current > next) {
+              sorted = false;
+              currentBar.style.backgroundColor = 'red';
+              nextBar.style.backgroundColor = 'red';
+              await this.sleep();
+
+              // IMPORTANT:
+              // change ids first, then change styles,
+              // and switch actual element in the array
+              
+              // switch current element & its bar representation 
+              // to next element & its bar representation
+              currentBar.setAttribute('id', `bar-${next}`);
+              currentBar.style.height = `${next * BAR_HEIGHT}px`;
+              this.array[i] = next;
+
+              // switch next element & its bar representation 
+              // to current element & its bar representation
+              nextBar.setAttribute('id', `bar-${current}`);
+              nextBar.style.height = `${current * BAR_HEIGHT}px`;
+              this.array[i + 1] = current;
+              this.sleep();
+          }
+
+
+          // show that its sorted
+          currentBar.style.backgroundColor = 'green';
+          nextBar.style.backgroundColor = 'green';
+          await this.sleep();
+
+          // reset styling
+          currentBar.style.backgroundColor = 'rgb(222, 239, 230)';
+          nextBar.style.backgroundColor = 'rgb(222, 239, 230)';
+          await this.sleep();
+        }
     }
-}
+    // resets isSorting and playStopBtn
+    this.isSorting = false;
+    playStopBtn.innerText = 'Play';
+    // console.log('ending array', this.array);
+    return this.array;
+  }
+
+  sleep() {
+    return new Promise((resolve) => setTimeout(resolve, this.speed));
+  }
+
+  updateSize(newSize) {
+    // disable sorting if currently sorting
+    if (this.isSorting) {
+      this.isSorting = false;
+    }
+    
+    this.size = newSize;
+    this.array = this.generateRandomArray(this.size);
+    this.animationArray.resetBars();
+    this.animationArray = new AnimationArray(this.array);
+  }
+  
+  updateSpeed(newSpeed) {
+    this.speed = SortSpeed[parseInt(newSpeed)];
+  }
+
+
+
+
+//   //dea
+// selectAlgo(e) {
+//     this.reset();
+//     this.sortAlgo=e.currentTarget.id;
+//     this.selectDescription(e);
+// }
+
+// //dea
+// selectDescription(e) {
+//     const graphDescription=document.querySelector('graph-description'); //grab graph-description element
+
+//     if (e.currentTarget.id==="#bubbleSort") {
+//         // if algo is BS
+//         graphDescription.append(descriptBubbleSort()); // invoke descriptBubbleSort and append to graphDescription
+//     }
+
+//     else if (e.currentTarget.id==="#mergeSort") {
+//         graphDescription.append(descriptMergeSort());
+//     }
+
+//     else if (e.currentTarget.id==="#quickSort") {
+//         graphDescription.append(descriptQuickSort());
+//     }
+
+//     else {
+//         graphDescription.append(descriptInsertionSort());
+//     }
+// }
 }

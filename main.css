@@ -18,7 +18,7 @@ body {
     margin: 20px;
     color: aliceblue;
     border: 1px solid rgb(10, 10, 10);
-    background-color: rgb(196, 199, 201);
+    /* background-color: rgb(196, 199, 201); */
 }
 
 .graph-container {
@@ -31,15 +31,47 @@ body {
 }
 
 .bar {
-    width: 20px;
+    width: 16px;
     background-color: rgb(222, 239, 230);
     border-radius: 2px;
-    /* border: 1px solid black; */
+    border: 1px solid black;
     margin: 0 1px;
+}
+
+.selection-algo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: rgb(52, 52, 52);
+}
+
+#select-algo {
+    width: 150px;
+    height: 30px;
+    background-color: #677685;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.2s ease-in-out;
+}
+
+.graph-description {
+    background-color: rgb(74, 73, 73);
 }
 
 .controllers-container {
     margin: 20px;
-    background-color: rgb(199, 230, 199);
+    background-color: rgb(65, 66, 65);
     border: 1px solid white;
 }
+
+.legend-container {
+    margin: 20px 10px 0 10px;
+}
+
+
+

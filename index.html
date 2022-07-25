@@ -15,37 +15,51 @@
 
     <div class="main-content">
         <div class="sorting-screen">
+
             <div id="graph-container" class="graph-container"></div>
+
+            <div class="selection-algo">
+                <select name="select-algo" id="select-algo">
+                    <option value="bubbleSort">Bubble Sort</option>
+                    <option value="insertionSort">Insertion Sort</option>
+                </select>
+            </div>
+
             <div class="graph-description">
-                <h4>Description:</h4>
-                <span>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi fuga, harum, similique quibusdam
-                    aliquid tempore, sunt
-                    vitae repellat quidem cupiditate consequatur voluptatibus! Repellendus esse quibusdam hic nesciunt
-                    alias doloremque
-                    veritatis.
+                <div>Description:</div>
+                <span id="description-text">
+                    Bubble sort is a simple sorting algorithm. This sorting algorithm is comparison-based algorithm in which each pair of
+                    adjacent elements is compared and the elements are swapped if they are not in order. This algorithm is not suitable for
+                    large data sets as its average and worst case complexity are of Ο(n^2) where n is the number of items.
                 </span>
             </div>
         </div>
 
         <div class="controllers-container">
-            <button id="compare-single-algo-btn">Compare Algo</button>
+            <!-- <button id="compare-single-algo-btn">Compare Algo</button> -->
 
             <div>
                 <label for="size">Size</label>
                 <input type="range" min="30" max="50" step="10" value="30" id="size" name="size" />
-                <output></output>
+                <output id="size-output">30</output>
             </div>
 
             <div>
                 <label for="speed">Speed</label>
-                <input type="range" min="1" max="3" value="1" id="speed" name="speed" />
-                <output></output>
+                <input type="range" min="1" max="10" value="1" id="speed" name="speed" />
+                <output id="speed-output">1</output>
             </div>
 
-            <button id="play-pause-btn">Play/Pause</button>
+            <button id="play-stop-btn">Play</button>
 
             <button id="reset-btn">Reset</button>
+
+            <div class="legend-container">
+                <div>Legend:</div>
+                <div>Black: Elements being compared</div>
+                <div>Red: Elements need to be swapped</div>
+                <div>Green: Elements do not need to be swapped</div>
+            </div>
         </div>
     </div>
 

@@ -12,8 +12,12 @@ class AnimationArray {
       let bar = document.createElement('div');
       bar.classList.add('bar');
       bar.style.height = `${array[i] * BAR_HEIGHT}px`;
-      bar.setAttribute('id', array[i]);
+      bar.setAttribute('id', `bar-${array[i]}`);
       graphContainer.appendChild(bar);
     }
+  }
+
+  resetBars() {
+    graphContainer.innerHTML = '';
   }
 }
