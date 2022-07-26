@@ -27,8 +27,8 @@ class Sort {
   constructor(size=30, speed=1, sortAlgo=Algorithms.BUBBLE_SORT) {
     this.size = size; // 30, 40, 50 elements/bars
     this.speed = SortSpeed[speed]; // in milliseconds
-    this.sortAlgo = sortAlgo; // bubblesort for now
-    this.array = this.generateRandomArray(this.size); // logic to generate a shuffled array
+    this.sortAlgo = sortAlgo; // bubblesort/insertionsort for now
+    this.array = [1,5,3,7,4]; //this.generateRandomArray(this.size); // logic to generate a shuffled array
     this.animationArray = new AnimationArray(this.array); // instance of animation array
     this.isSorting = false; // boolean to determine if were currently sorting
   }
@@ -70,7 +70,9 @@ class Sort {
       case "bubbleSort":
         this.bubbleSort();
         break;
-    
+      case "insertionSort":
+        this.insertionSort();
+        break;
       default:
         break;
     }
@@ -132,7 +134,6 @@ class Sort {
               this.sleep();
           }
 
-
           // show that its sorted
           currentBar.style.backgroundColor = 'green';
           nextBar.style.backgroundColor = 'green';
@@ -150,7 +151,69 @@ class Sort {
     // console.log('ending array', this.array);
     return this.array;
   }
+  
+  async insertionSort() {
+    for (let i = 1; i < this.array.length; i++) {
+      // if (!this.isSorting) break;
 
+      // current element & its bar representation
+      const current = this.array[i];
+      console.log("current", this.array[i]);
+      const currentBar = document.getElementById(`bar-${current}`);
+      
+      // element comparing with current & its bar representation
+      let previousIdx = i - 1; //Idx = j
+      // const previous = this.array[previousIdx];
+      console.log("previousIdx", previousIdx)
+      const previousBar = document.getElementById(`bar-${this.array[previousIdx]}`);
+
+      currentBar.style.backgroundColor = 'black';
+      previousBar.style.backgroundColor = 'black';
+      await this.sleep();
+
+      while (previousIdx >= 0 && this.array[previousIdx] > current) {
+        console.log("need to swap n1", this.array[previousIdx]);
+        console.log("need to swap n2", current);
+
+        currentBar.style.backgroundColor = 'red';
+        previousBar.style.backgroundColor = 'red';
+        await this.sleep();
+
+        currentBar.setAttribute('id', `bar-${this.array[previousIdx]}`);
+        currentBar.style.height = `${this.array[previousIdx] * BAR_HEIGHT}px`;
+
+        previousBar.setAttribute('id', `bar-${current}`);
+        previousBar.style.height = `${current * BAR_HEIGHT}px`;
+
+        this.array[previousIdx + 1] = this.array[previousIdx];
+        previousIdx = previousIdx - 1;
+
+        currentBar.style.backgroundColor = 'green';
+        previousBar.style.backgroundColor = 'green';
+        await this.sleep();
+
+      }
+      // show that its sorted
+      currentBar.style.backgroundColor = 'green';
+      previousBar.style.backgroundColor = 'green';
+      this.array[previousIdx + 1] = current;
+      console.log("previousIdx + 1 = current", this.array[previousIdx + 1]);
+      console.log(this.array)
+      await this.sleep();
+
+      // reset styling
+      currentBar.style.backgroundColor = 'rgb(222, 239, 230)';
+      previousBar.style.backgroundColor = 'rgb(222, 239, 230)';
+      
+      await this.sleep();
+      console.log(this.array);
+    }
+
+    this.isSorting = false;
+    playStopBtn.innerText = 'Play';
+    return this.array;
+  }
+  
   sleep() {
     return new Promise((resolve) => setTimeout(resolve, this.speed));
   }
@@ -171,6 +234,14 @@ class Sort {
     this.speed = SortSpeed[parseInt(newSpeed)];
   }
 
+  updateSortAlgo(newAlgo) {
+    // change to new sorting Algo
+    if (this.isSorting) {
+      this.isSorting = false;
+    }
+    newAlgo = Object.keys(Algorithms).find(algo => Algorithms[algo] === newAlgo);
+    this.sortAlgo = Algorithms[newAlgo];
+  }
 
 
 

@@ -1,6 +1,9 @@
-async function insertionSort(array) {   //[1,5,3]
+async function insertionSort(array) {   //[5,1,3]
+    // we start at 1 because we want left of that to be 'sorted arr'
     for (let i = 1; i < array.length; i++) { // i =2
+        // we declare the current ele to current var to store it's position
         let current = array[i];     // current = 3
+        // j is the previous ele
         let j = i - 1;              // j = 1
         
         while (j >= 0 && array[j] > current) {  // (j>=0 && array[0] > 3)? --> true
