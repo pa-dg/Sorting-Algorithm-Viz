@@ -23,7 +23,7 @@ export const SortSpeed = {
   10: 50,
 };
 
-export const BAR_HEIGHT = 5;
+export const BAR_HEIGHT = 6;
 
 export const graphContainer = document.getElementById("graph-container");
 export const playStopBtn = document.getElementById("play-stop-btn");
@@ -34,3 +34,7 @@ export const speedOutput = document.getElementById("speed-output");
 export const speedRange = document.getElementById("speed");
 export const selectDropdown = document.getElementById("select-algo");
 export const descriptionText = document.getElementById("description-text");
+
+export const comparisonColor = "grey";
+export const needToBeSwappedColor = "red";
+export const noSwapNeededColor = "green";

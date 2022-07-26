@@ -12,6 +12,7 @@ export class AnimationArray {
       bar.classList.add("bar");
       bar.style.height = `${array[i] * BAR_HEIGHT}px`;
       bar.setAttribute("id", `bar-${array[i]}`);
+      bar.innerText = `${array[i]}`;
       graphContainer.appendChild(bar);
     }
   }

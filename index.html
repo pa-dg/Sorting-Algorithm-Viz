@@ -38,25 +38,31 @@
         <div class="controllers-container">
             <!-- <button id="compare-single-algo-btn">Compare Algo</button> -->
 
-            <div>
-                <label for="size">Size</label>
-                <input type="range" min="30" max="50" step="10" value="30" id="size" name="size" />
-                <output id="size-output">30</output>
+            <div class="size-control">
+                <label for="size">
+                    Size:
+                    <span id="size-output">10</span>
+                </label>
+                
+                <input type="range" min="10" max="50" step="10" value="10" id="size" name="size" />
             </div>
 
-            <div>
-                <label for="speed">Speed</label>
-                <input type="range" min="1" max="10" value="1" id="speed" name="speed" />
-                <output id="speed-output">1</output>
+            <div class="speed-control">
+                <label for="speed">
+                    Speed:
+                    <span id="speed-output">10</span>
+                </label>
+                <input type="range" min="1" max="10" value="10" id="speed" name="speed" />
             </div>
 
-            <button id="play-stop-btn">Play</button>
-
-            <button id="reset-btn">Reset</button>
+            <div class="buttons-container">
+                <button id="play-stop-btn">Play</button>
+                <button id="reset-btn">Reset</button>
+            </div>
 
             <div class="legend-container">
                 <div>Legend:</div>
-                <div>Black: Elements being compared</div>
+                <div>Grey: Elements being compared</div>
                 <div>Red: Elements need to be swapped</div>
                 <div>Green: Elements do not need to be swapped</div>
             </div>
