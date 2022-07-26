@@ -1,0 +1,42 @@
+.controllers-container {
+  margin: 20px;
+  padding: 10px;
+  width: 250px;
+  background-color: transparent;
+  border: 1px solid rgb(78, 93, 223);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.size-control,
+.speed-control {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons-container {
+  margin: 20px 0;
+}
+
+#play-stop-btn {
+  background: var(--clr-neon);
+  transition-delay: 1s;
+  color: rgb(27, 89, 156);
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa,
+    0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
+}
+
+#reset-btn {
+  background: var(--clr-neon);
+  transition-delay: 1s;
+  color: rgb(27, 89, 156);
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa,
+    0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
+}
+
+.legend-container {
+  margin: 20px 10px 0 10px;
+}

@@ -1,0 +1,67 @@
+.sorting-screen {
+  min-width: 750px;
+  width: 750px;
+  margin: 20px;
+  color: aliceblue;
+  background-color: transparent;
+}
+
+.graph-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  border: 1px solid rgb(78, 93, 223);
+  height: 300px;
+  background-color: transparent !important;
+  padding: 4px 2px 2px 2px;
+}
+
+.bar {
+  font-size: 6.5px;
+  color: black;
+  width: 12px;
+  background-color: rgba(229, 234, 95, 0.5);
+  border-radius: 2px;
+  border: 1px solid rgb(229, 234, 95);
+  margin: 0 1px;
+  box-shadow: 1px 1px 10px 3px rgb(155, 178, 127);
+  animation: pulsate 4s infinite alternate;
+}
+
+.selection-algo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background-color: transparent;
+  margin-top: 10px;
+}
+
+#select-algo {
+  width: 150px;
+  height: 30px;
+  background-color: #677685;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.2s ease-in-out;
+  color: var(--primary-color);
+  overflow: hidden;
+}
+
+.graph-description {
+}
+
+@keyframes pulsate {
+  100% {
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #0fa,
+      0 0 80px #0fa, 0 0 90px #0fa, 0 0 100px #0fa, 0 0 150px #0fa;
+  }
+
+  0% {
+    text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 10px #0fa,
+      0 0 45px #0fa, 0 0 55px #0fa, 0 0 70px #0fa, 0 0 80px #0fa;
+  }
+}
