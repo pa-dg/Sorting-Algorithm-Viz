@@ -11,8 +11,7 @@ import {
 } from "./";
 
 export class Sort {
-  // TODO: switch default to bubble sort again
-  constructor(size = 10, speed = 10, sortAlgo = Algorithms.insertionSort) {
+  constructor(size = 10, speed = 10, sortAlgo = Algorithms.bubbleSort) {
     this.size = size; // 30, 40, 50 elements/bars
     this.speed = SortSpeed[speed]; // in milliseconds
     this.sortAlgo = sortAlgo; // bubblesort/insertionsort for now
