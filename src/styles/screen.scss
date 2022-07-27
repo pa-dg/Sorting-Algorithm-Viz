@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  border: 1px solid rgb(78, 93, 223);
+  border: 2px solid rgb(78, 93, 223);
   height: 300px;
   background-color: transparent !important;
   padding: 4px 2px 2px 2px;
@@ -52,6 +52,7 @@
 }
 
 .graph-description {
+  padding: 5px;
 }
 
 @keyframes pulsate {
