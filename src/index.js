@@ -33,7 +33,7 @@ resetBtn.addEventListener("click", function () {
     playStopBtn.innerHTML = "";
     let playBtn = document.createElement("i");
     playBtn.setAttribute("id", "play-btn");
-    playBtn.classList.add("fa-solid", "fa-play", "play-btn");
+    playBtn.classList.add("fa-solid", "fa-play", "fa-2x", "play-btn");
     playStopBtn.appendChild(playBtn);
   }
   sort.reset();

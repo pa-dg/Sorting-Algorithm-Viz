@@ -6,8 +6,8 @@
   padding: 10px;
   width: 150px;
   background-color: transparent;
-  border: 1.5px solid rgb(78, 93, 223);
-  border-radius: 15px;
+  border: 1.5px solid #4e5ddf;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -20,12 +20,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .buttons-container {
   width: 100%;
-  margin: 20px 0;
+  margin: 10px 10px;
   display: flex;
   justify-content: space-evenly;
 }
@@ -33,18 +33,14 @@
 .play-btn,
 .stop-btn {
   cursor: pointer;
-  background: var(--clr-neon);
-  transition-delay: 1s;
-  color: rgb(27, 89, 156);
-  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa, 0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
+  color: #155eab;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #89934f, 0 0 42px #89934f, 0 0 82px #89934f, 0 0 92px #89934f, 0 0 102px #89934f, 0 0 151px #0fa;
 }
 
 #reset-btn {
   cursor: pointer;
-  background: var(--clr-neon);
-  transition-delay: 1s;
-  color: rgb(27, 89, 156);
-  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa, 0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
+  color: #155eab;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #89934f, 0 0 42px #89934f, 0 0 82px #89934f, 0 0 92px #89934f, 0 0 102px #89934f, 0 0 151px #0fa;
 }
 
 .play-stop-btn {
@@ -57,9 +53,12 @@
 
 .legend-container {
   height: 200px;
-  font-size: 13px;
+  font-size: 15px;
   font-family: "Courier New", Courier, monospace;
   margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 .legend-container div:not(:last-child) {
   margin-bottom: 20px;

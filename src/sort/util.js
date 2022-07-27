@@ -24,14 +24,14 @@ export function updatePlayStopBtn(isSorting) {
     playStopBtn.innerHTML = "";
     let playBtn = document.createElement("i");
     playBtn.setAttribute("id", "play-btn");
-    playBtn.classList.add("fa-solid", "fa-play", "play-btn");
+    playBtn.classList.add("fa-solid", "fa-play", "fa-2x", "play-btn");
     playStopBtn.appendChild(playBtn);
   } else {
     // change play button to stop button
     playStopBtn.innerHTML = "";
     let stopBtn = document.createElement("i");
     stopBtn.setAttribute("id", "stop-btn");
-    stopBtn.classList.add("fa-solid", "fa-stop", "stop-btn");
+    stopBtn.classList.add("fa-solid", "fa-stop", "fa-2x", "stop-btn");
     playStopBtn.appendChild(stopBtn);
   }
 }
