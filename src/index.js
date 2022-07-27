@@ -1,5 +1,5 @@
 import {
-  Algo_desc,
+  AlgoDesc,
   Sort,
   playStopBtn,
   resetBtn,
@@ -9,29 +9,34 @@ import {
   speedOutput,
   selectDropdown,
   descriptionText,
+  updateLegend,
+  updatePlayStopBtn,
 } from "./sort";
 
 const sort = new Sort();
 
-// const compareSingleAlgoBtn = document.getElementById('compare-single-algo-btn');
-
-// compareSingleAlgoBtn.addEventListener('click', function() {
-//   console.log('Switch to compare screen');
-// });
-
 playStopBtn.addEventListener("click", function () {
-  if (playStopBtn.innerText === "Play") {
-    playStopBtn.innerText = "Stop";
+  let playBtn = document.getElementById("play-btn");
+
+  if (playBtn) {
     sort.play();
   } else {
-    playStopBtn.innerText = "Play";
     sort.stop();
   }
+
+  updatePlayStopBtn(sort.isSorting);
 });
 
 resetBtn.addEventListener("click", function () {
+  if (sort.isSorting) {
+    // if its sorting then toggle play button to stop button
+    playStopBtn.innerHTML = "";
+    let playBtn = document.createElement("i");
+    playBtn.setAttribute("id", "play-btn");
+    playBtn.classList.add("fa-solid", "fa-play", "play-btn");
+    playStopBtn.appendChild(playBtn);
+  }
   sort.reset();
-  playStopBtn.innerText = "Play";
 });
 
 sizeRange.addEventListener("change", function (event) {
@@ -45,7 +50,8 @@ speedRange.addEventListener("change", function (event) {
 });
 
 selectDropdown.addEventListener("change", function (event) {
-  descriptionText.innerText = Algo_desc[event.target.value];
+  descriptionText.innerText = AlgoDesc[event.target.value];
+  updateLegend(event.target.value);
   sort.updateSortAlgo(event.target.value);
   sort.reset();
 });

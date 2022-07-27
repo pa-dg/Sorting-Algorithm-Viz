@@ -4,12 +4,12 @@ import {
   SortSpeed,
   BAR_HEIGHT,
   graphContainer,
-  playStopBtn,
   comparisonColor,
   needToBeSwappedColor,
   noSwapNeededColor,
-  isArrayEqual,
   defaultBarColor,
+  updatePlayStopBtn,
+  resetBarsStyling,
 } from "./";
 
 export class Sort {
@@ -18,8 +18,8 @@ export class Sort {
     this.speed = SortSpeed[speed]; // in milliseconds
     this.sortAlgo = sortAlgo; // bubblesort/insertionsort for now
     this.array = this.generateRandomArray(this.size); // logic to generate a shuffled array
-    this.animationArray = new AnimationArray(this.array, this.speed); // instance of animation array
     this.isSorting = false; // boolean to determine if were currently sorting
+    this.animationArray = new AnimationArray(this.array, this.speed); // instance of animation array
   }
 
   generateRandomArray(size) {
@@ -101,6 +101,8 @@ export class Sort {
     if (this.isSorting) {
       this.isSorting = false;
     }
+    // reset button
+    updatePlayStopBtn(this.isSorting);
 
     this.size = newSize;
     this.array = this.generateRandomArray(this.size);
@@ -117,6 +119,8 @@ export class Sort {
     if (this.isSorting) {
       this.isSorting = false;
     }
+    // reset button
+    updatePlayStopBtn(this.isSorting);
     this.sortAlgo = Algorithms[newAlgo];
   }
 
@@ -128,7 +132,10 @@ export class Sort {
     while (!sorted) {
       sorted = true;
       for (let i = 0; i < this.array.length - 1; i++) {
-        if (!this.isSorting) break;
+        if (!this.isSorting) {
+          resetBarsStyling();
+          return;
+        }
 
         // current element & its bar representation
         const current = this.array[i];
@@ -179,87 +186,142 @@ export class Sort {
         await this.sleep();
       }
     }
+
     // resets isSorting and playStopBtn
     this.isSorting = false;
-    playStopBtn.innerText = "Play";
+    updatePlayStopBtn(this.isSorting);
+
     // TODO: remove
     console.log("ending array", this.array);
     return this.array;
   }
 
-  async insertionSort() {
-    console.info("Sorting using insertion sort.");
-    for (let i = 1; i < this.array.length; i++) {
-      if (!this.isSorting) break;
+  // async insertionSort() {
+  //   console.info("Sorting using insertion sort.");
+  //   for (let i = 1; i < this.array.length; i++) {
+  //     if (!this.isSorting) break;
 
-      let previousIdx = i - 1;
-      let previousBar = document.getElementById(
-        `bar-${this.array[previousIdx]}`
-      );
+  //     let previousIdx = i - 1;
+  //     let previousBar = document.getElementById(
+  //       `bar-${this.array[previousIdx]}`
+  //     );
 
-      const current = this.array[i];
-      let currentBar = document.getElementById(`bar-${current}`);
+  //     const current = this.array[i];
+  //     let currentBar = document.getElementById(`bar-${current}`);
 
-      currentBar.style.backgroundColor = comparisonColor;
-      previousBar.style.backgroundColor = comparisonColor;
-      await this.sleep();
+  //     currentBar.style.backgroundColor = comparisonColor;
+  //     previousBar.style.backgroundColor = comparisonColor;
+  //     await this.sleep();
 
-      while (previousIdx >= 0 && this.array[previousIdx] > current) {
-        currentBar.style.backgroundColor = needToBeSwappedColor;
-        previousBar.style.backgroundColor = needToBeSwappedColor;
-        await this.sleep();
+  //     while (previousIdx >= 0 && this.array[previousIdx] > current) {
+  //       currentBar.style.backgroundColor = needToBeSwappedColor;
+  //       previousBar.style.backgroundColor = needToBeSwappedColor;
+  //       await this.sleep();
 
-        currentBar.setAttribute("id", `bar-${this.array[previousIdx]}`);
-        currentBar.style.height = `${this.array[previousIdx] * BAR_HEIGHT}px`;
-        currentBar.innerText = `${this.array[previousIdx]}`;
+  //       currentBar.setAttribute("id", `bar-${this.array[previousIdx]}`);
+  //       currentBar.style.height = `${this.array[previousIdx] * BAR_HEIGHT}px`;
+  //       currentBar.innerText = `${this.array[previousIdx]}`;
 
-        this.array[previousIdx + 1] = this.array[previousIdx];
-        previousIdx = previousIdx - 1;
-      }
-      previousBar.setAttribute("id", `bar-${current}`);
-      previousBar.style.height = `${current * BAR_HEIGHT}px`;
-      previousBar.innerText = `${current}`;
+  //       this.array[previousIdx + 1] = this.array[previousIdx];
+  //       previousIdx = previousIdx - 1;
+  //     }
+  //     previousBar.setAttribute("id", `bar-${current}`);
+  //     previousBar.style.height = `${current * BAR_HEIGHT}px`;
+  //     previousBar.innerText = `${current}`;
 
-      this.array[previousIdx + 1] = current;
-      await this.sleep();
+  //     this.array[previousIdx + 1] = current;
+  //     await this.sleep();
 
-      // show that its sorted
-      currentBar.style.backgroundColor = noSwapNeededColor;
-      previousBar.style.backgroundColor = noSwapNeededColor;
-      await this.sleep();
+  //     // show that its sorted
+  //     currentBar.style.backgroundColor = noSwapNeededColor;
+  //     previousBar.style.backgroundColor = noSwapNeededColor;
+  //     await this.sleep();
 
-      // reset styling
-      currentBar.style.backgroundColor = defaultBarColor;
-      previousBar.style.backgroundColor = defaultBarColor;
-      await this.sleep();
-    }
-    this.isSorting = false;
-    playStopBtn.innerText = "Play";
-    // TODO: remove
-    console.log("ending array", this.array);
-    return this.array;
-  }
+  //     // reset styling
+  //     currentBar.style.backgroundColor = defaultBarColor;
+  //     previousBar.style.backgroundColor = defaultBarColor;
+  //     await this.sleep();
+  //   }
+  //   // reset isSorting and playStopBtn
+  //   this.isSorting = false;
+  //   updatePlayStopBtn(this.isSorting);
+
+  //   // TODO: remove
+  //   console.log("ending array", this.array);
+  //   return this.array;
+  // }
 
   async selectionSort() {
     for (let i = 0; i < this.array.length; i++) {
+      if (!this.isSorting) {
+        resetBarsStyling();
+        return;
+      }
       let minIdx = i;
 
       for (let j = i + 1; j < this.array.length; j++) {
+        if (!this.isSorting) {
+          resetBarsStyling();
+          return;
+        }
         const nextIdx = j;
 
         if (this.array[nextIdx] < this.array[minIdx]) {
+          const currentMinBar = document.getElementById(
+            `bar-${this.array[nextIdx]}`
+          );
+          // represent that this is the current min value in this iteration
+          currentMinBar.style.backgroundColor = comparisonColor;
+          await this.sleep();
+
           minIdx = nextIdx;
+
+          // reset styling on current min value
+          currentMinBar.style.backgroundColor = defaultBarColor;
+          await this.sleep();
         }
       }
-      if (minIdx != i) {
+
+      if (minIdx !== i) {
+        const currentBar = document.getElementById(`bar-${this.array[i]}`);
+        const nextBar = document.getElementById(`bar-${this.array[minIdx]}`);
+
+        // represent that two elements need to be swapped
+        currentBar.style.backgroundColor = needToBeSwappedColor;
+        nextBar.style.backgroundColor = needToBeSwappedColor;
+        await this.sleep();
+
+        // visual bar swapping
+        currentBar.setAttribute("id", `bar-${this.array[minIdx]}`);
+        currentBar.style.height = `${this.array[minIdx] * BAR_HEIGHT}px`;
+        currentBar.innerText = `${this.array[minIdx]}`;
+
+        nextBar.setAttribute("id", `bar-${this.array[i]}`);
+        nextBar.style.height = `${this.array[i] * BAR_HEIGHT}px`;
+        nextBar.innerText = `${this.array[i]}`;
+        await this.sleep();
+
+        // swapping of actual elements
         let temp = this.array[i];
         this.array[i] = this.array[minIdx];
         this.array[minIdx] = temp;
+
+        // show that its good
+        currentBar.style.backgroundColor = noSwapNeededColor;
+        nextBar.style.backgroundColor = noSwapNeededColor;
+        await this.sleep();
+
+        // reset styling
+        currentBar.style.backgroundColor = defaultBarColor;
+        nextBar.style.backgroundColor = defaultBarColor;
+        await this.sleep();
       }
     }
+
     // resets isSorting and playStopBtn
     this.isSorting = false;
-    playStopBtn.innerText = "Play";
+    updatePlayStopBtn(this.isSorting);
+
     // TODO: remove
     console.log("ending array", this.array);
     return this.array;
@@ -267,26 +329,38 @@ export class Sort {
 
   async quickSort(items, left, right) {
     console.info("Sorting using quick sort.");
-
     let index;
     let bars = document.getElementsByClassName("bar");
     if (items.length > 1) {
       index = await this.animationArray.partition(items, left, right);
       if (left < index - 1) {
+        if (!this.isSorting) {
+          resetBarsStyling();
+          return;
+        }
         await this.quickSort(items, left, index - 1);
       }
       if (index < right) {
+        if (!this.isSorting) {
+          resetBarsStyling();
+          return;
+        }
         await this.quickSort(items, index, right);
       }
     }
 
     for (let i = 0; i < bars.length; i++) {
-      // if (!this.isSorting) break;
+      if (!this.isSorting) {
+        resetBarsStyling();
+        return;
+      }
       bars[i].style.backgroundColor = defaultBarColor;
     }
-    // resets isSorting and playStopBtn
-    // this.isSorting = false;
-    playStopBtn.innerText = "Play";
+
+    // reset isSorting and playStopBtn
+    this.isSorting = false;
+    updatePlayStopBtn(this.isSorting);
+
     // TODO: remove
     console.log("ending array", items);
     return items;

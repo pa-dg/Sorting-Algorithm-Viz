@@ -5,7 +5,7 @@ export const Algorithms = {
   quickSort: "quickSort",
 };
 
-export const Algo_desc = {
+export const AlgoDesc = {
   bubbleSort:
     "Bubble sort is a simple sorting algorithm. This sorting algorithm is comparison-based algorithm in which each pair of adjacent elements is compared and the elements are swapped if they are not in order. This algorithm is not suitable for large data sets as its average and worst case complexity are of Ο(n^2) where n is the number of items.",
   insertionSort:
@@ -14,6 +14,24 @@ export const Algo_desc = {
     "Selection sort is a simple sorting algorithm. This sorting algorithm is an in-place comparison-based algorithm in which the list is divided into two parts, the sorted part at the left end and the unsorted part at the right end. Initially, the sorted part is empty and the unsorted part is the entire list. The smallest element is selected from the unsorted array and swapped with the leftmost element, and that element becomes a part of the sorted array. This process continues moving unsorted array boundary by one element to the right. This algorithm is not suitable for large data sets as its average and worst case complexities are of Ο(n^2), where n is the number of items.",
   quickSort:
     "Quick sort is a highly efficient sorting algorithm and is based on partitioning of array of data into smaller arrays. A large array is partitioned into two arrays one of which holds values smaller than the specified value, say pivot, based on which the partition is made and another array holds values greater than the pivot value. Quicksort partitions an array and then calls itself recursively twice to sort the two resulting subarrays. This algorithm is quite efficient for large-sized data sets as its average and worst-case complexity are O(n^2), respectively.",
+};
+
+export const AlgoLegends = {
+  bubbleSort: {
+    Grey: "Elements being compared",
+    Red: "Elements need to be swapped",
+    Green: "Elements do not need to be swapped",
+  },
+  quickSort: {
+    Grey: "Pivot element",
+    Red: "Left element/s being sorted",
+    Green: "Right element/s being sorted",
+  },
+  selectionSort: {
+    Grey: "Current minimum value in the current iteration",
+    Red: "Elements that need to be swapped",
+    Green: "Elements sorted",
+  },
 };
 
 export const SortSpeed = {
@@ -40,6 +58,7 @@ export const speedOutput = document.getElementById("speed-output");
 export const speedRange = document.getElementById("speed");
 export const selectDropdown = document.getElementById("select-algo");
 export const descriptionText = document.getElementById("description-text");
+export const legendContainer = document.getElementById("legend-container");
 
 export const comparisonColor = "grey";
 export const needToBeSwappedColor = "red";

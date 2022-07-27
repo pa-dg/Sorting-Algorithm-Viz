@@ -7,12 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
-    <title>Sorting Algorithm Visualizer</title>
+    <script src="https://kit.fontawesome.com/135a05107c.js" crossorigin="anonymous"></script>
+    
+    <title>Sorting Algorithm Viz</title>
 </head>
 
 <body>
     <div class="main"></div>
-    <h1 class="heading">Sorting Algorithm Visualizer</h1>
+    <h1 class="heading">Sorting Algorithm Viz</h1>
 
     <div class="main-content">
         <div class="sorting-screen">
@@ -50,7 +52,6 @@
                 
                 <input type="range" min="10" max="50" step="10" value="10" id="size" name="size" />
             </div>
-            <br>
             <div class="speed-control">
                 <label for="speed">
                     Speed:
@@ -60,17 +61,19 @@
             </div>
 
             <div class="buttons-container">
-                <button id="play-stop-btn">Play</button>
-                <button id="reset-btn">Reset</button>
+                <div id="play-stop-btn" class="play-stop-btn">
+                    <i id='play-btn' class="fa-solid fa-play play-btn"></i>
+                </div>
+                
+                <div id="reset-btn">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                </div>
             </div>
 
-            <div class="legend-container">
+            <div id="legend-container" class="legend-container">
                 <div>Legend:</div>
-                <br>
                 <div>Grey: Elements being compared</div>
-                <br>
                 <div>Red: Elements need to be swapped</div>
-                <br>
                 <div>Green: Elements do not need to be swapped</div>
             </div>
         </div>
