@@ -67,6 +67,8 @@ export class AnimationArray {
     this.sleep();
 
     for (let i = 0; i < bars.length; i++) {
+      // ADD BREAK IF !SORTING
+      if (!this.isSorting) break;
       if (i != pivotIndex) {
         bars[i].style.backgroundColor = defaultBarColor;
       }
@@ -75,10 +77,19 @@ export class AnimationArray {
     let i = left; // left pointer
     let j = right; // right pointer
     while (i <= j) {
+      // ADD BREAK IF !SORTING
+      if (!this.isSorting) break;
+
       while (items[i] < pivotElement) {
+        // ADD BREAK IF !SORTING
+        if (!this.isSorting) break;
+
         i++;
       }
       while (items[j] > pivotElement) {
+        // ADD BREAK IF !SORTING
+        if (!this.isSorting) break;
+
         j--;
       }
       if (i <= j) {

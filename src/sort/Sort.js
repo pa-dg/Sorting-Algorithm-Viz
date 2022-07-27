@@ -17,7 +17,7 @@ export class Sort {
     this.size = size; // 30, 40, 50 elements/bars
     this.speed = SortSpeed[speed]; // in milliseconds
     this.sortAlgo = sortAlgo; // bubblesort/insertionsort for now
-    this.array = [5, 1, 3, 7, 4]; //this.generateRandomArray(this.size); // logic to generate a shuffled array
+    this.array = this.generateRandomArray(this.size); // logic to generate a shuffled array
     this.animationArray = new AnimationArray(this.array, this.speed); // instance of animation array
     this.isSorting = false; // boolean to determine if were currently sorting
   }
@@ -256,6 +256,7 @@ export class Sort {
     }
 
     for (let i = 0; i < bars.length; i++) {
+      if (!this.isSorting) break;
       bars[i].style.backgroundColor = defaultBarColor;
     }
     // resets isSorting and playStopBtn
