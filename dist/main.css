@@ -2,13 +2,15 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
 .controllers-container {
-  margin: 20px;
+  margin: 10px;
   padding: 10px;
   width: 200px;
   background-color: transparent;
-  border: 2px solid rgb(78, 93, 223);
+  border: 1.5px solid rgb(78, 93, 223);
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -18,6 +20,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 10px;
 }
 
 .buttons-container {
@@ -41,13 +44,15 @@
 }
 
 .legend-container {
+  font-size: 15px;
+  font-family: "Courier New", Courier, monospace;
   margin: 20px 10px 0 10px;
 }
 
 .sorting-screen {
   min-width: 750px;
   width: 750px;
-  margin: 20px;
+  margin: 10px;
   color: aliceblue;
   background-color: transparent;
 }
@@ -56,22 +61,22 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  border: 2px solid rgb(78, 93, 223);
+  border: 1.5px solid rgb(78, 93, 223);
   height: 300px;
   background-color: transparent !important;
   padding: 4px 2px 2px 2px;
 }
 
 .bar {
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 6.5px;
   color: black;
   width: 12px;
-  background-color: rgba(229, 234, 95, 0.5);
+  background-color: rgba(213, 207, 98, 0.568627451);
   border-radius: 2px;
-  border: 1px solid rgb(229, 234, 95);
+  border: 1px solid #eded8a;
   margin: 0 1px;
-  box-shadow: 1px 1px 10px 3px rgb(155, 178, 127);
-  animation: pulsate 4s infinite alternate;
+  box-shadow: 0px 0px 8px 1px rgb(155, 178, 127);
 }
 
 .selection-algo {
@@ -80,39 +85,41 @@
   align-items: center;
   height: 50px;
   background-color: transparent;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 #select-algo {
-  width: 150px;
-  height: 30px;
-  background-color: #677685;
-  border: none;
-  border-radius: 5px;
-  font-size: 14px;
-  cursor: pointer;
+  font-family: "Press Start 2P", cursive;
+  font-size: 10px;
   text-align: center;
-  transition: 0.2s ease-in-out;
-  color: var(--primary-color);
-  overflow: hidden;
+  color: #4e5ddf;
+  width: 150px;
+  height: 40px;
+  background-color: transparent;
+  border: 1px solid #4e5ddf;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#select-algo:hover {
+  background-color: transparent;
+  border-color: #ccbe3f;
+  color: #ccbe3f;
 }
 
 .graph-description {
-  padding: 5px;
+  margin-top: 0px;
+  padding: 2px;
+  font-size: 15px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
 }
 
-@keyframes pulsate {
-  100% {
-    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #0fa, 0 0 80px #0fa, 0 0 90px #0fa, 0 0 100px #0fa, 0 0 150px #0fa;
-  }
-  0% {
-    text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 10px #0fa, 0 0 45px #0fa, 0 0 55px #0fa, 0 0 70px #0fa, 0 0 80px #0fa;
-  }
-}
 body {
-  background-color: #151d24;
-  color: rgb(229, 234, 95);
+  background-color: #04040a;
+  color: rgb(204, 190, 63);
   margin: 50px;
+  font-family: "Press Start 2P", cursive;
 }
 
 .main {
@@ -122,6 +129,7 @@ body {
   background-color: #fff;
   border-radius: 0%;
   box-shadow: -32vw 22vh 1px 1px #fff, -41vw 12vh 0.3px 1px #fff, -39vw 46vh 0.5px 0.5px #fff, -40vw -33vh 2px 0.5px #fff, -49vw -36vh 1px 2px #fff, -6vw 21vh 2px 1px #fff, -37vw -44vh 2px 1px #fff, 19vw 14vh 3px 2px #fff, -26vw 43vh 1px 1px #fff, -12vw -32vh 1px 1px #fff, 15vw 21vh 2px 2px #fff, -1vw 35vh 2px 0.5px #fff, -35vw 2vh 1px 2px #fff, -40vw 26vh 2px 2px #fff, 34vw -7vh 1px 1px #fff, 23vw -37vh 0.5px 0.6px #fff, -9vw -14vh 3px 2px #fff, 40vw 35vh 2px 0.75px #fff, 17vw 44vh 3px 2px #fff, -31vw 45vh 2px 1px #fff, 50vw 49vh 2px 2px #fff, -7vw -18vh 0px 1px #fff, 14vw 22vh 2px 2px #fff, -28vw -23vh 3px 1px #fff, 49vw -45vh 2px 2px #fff, 15vw 46vh 2px 2px #fff, 15vw 37vh 2px 2px #fff, 29vw -1vh 2px 2px #fff, 33vw 50vh 2px 1px #fff, 5vw -47vh 1px 1px #fff, 30vw 13vh 0px 2px #fff, -12vw -28vh 2px 2px #fff, 37vw 49vh 2px 2px #fff, -18vw 6vh 2px 2px #fff, -10vw 38vh 2px 1px #fff, -16vw -26vh 1px 1px #fff, -44vw -45vh 2px 2px #fff, 22vw -38vh 0.5px 1px #fff, 46vw 26vh 2px 2px #fff, -3vw -5vh 2px 1px #fff, 42vw 22vh 2px 2px #fff, 15vw -22vh 2px 0.5px #fff, -25vw -50vh 0.4px 2px #fff, 39vw -45vh 1px 1px #fff, -31vw 1vh 1px 2px #fff, 6vw 14vh 2px 2px #fff, -40vw 10vh 1px 1px #fff, 9vw -29vh 2px 2px #fff, 39vw -50vh 2px 1px #fff, 13vw -42vh 1px 0.5px #fff;
+  animation: zoom 10s infinite alternate;
 }
 
 @keyframes zoom {
@@ -133,14 +141,23 @@ body {
   }
 }
 .heading {
-  margin: 20px 30px;
+  margin: 40px 30px;
   text-align: center;
-  font-family: "Press Start 2P", cursive;
   font-size: 20px;
+  animation: pulsate 10s ease-in-out infinite alternate-reverse;
 }
 
 .main-content {
   height: 100%;
   display: flex;
   justify-content: center;
+}
+
+@keyframes pulsate {
+  100% {
+    text-shadow: 0 0 4px rgb(31, 23, 23), 0 0 6px rgb(75, 73, 54), 0 0 10px #74742c, 0 0 18px #d7d778, 0 0 25px #d7d778, 0 0 20px #b8b94d, 0 0 30px #b8b94d, 0 0 40px #b8b94d;
+  }
+  0% {
+    text-shadow: 0 0 2px #7e6536, 0 0 4px #7e6536, 0 0 6px #7e6536, 0 0 10px #7e6536, 0 0 25px #7e6536, 0 0 45px #ff8d00, 0 0 50px #f1dd6b;
+  }
 }

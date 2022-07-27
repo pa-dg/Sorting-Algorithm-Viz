@@ -2,9 +2,10 @@
 @import "styles/screen";
 
 body {
-  background-color: #151d24;
-  color: rgb(229, 234, 95);
+  background-color: #04040a;
+  color: rgb(204, 190, 63);
   margin: 50px;
+  font-family: "Press Start 2P", cursive;
 }
 
 .main {
@@ -31,7 +32,7 @@ body {
     -25vw -50vh 0.4px 2px #fff, 39vw -45vh 1px 1px #fff, -31vw 1vh 1px 2px #fff,
     6vw 14vh 2px 2px #fff, -40vw 10vh 1px 1px #fff, 9vw -29vh 2px 2px #fff,
     39vw -50vh 2px 1px #fff, 13vw -42vh 1px 0.5px #fff;
-  // animation: zoom 10s alternate infinite;
+  animation: zoom 10s infinite alternate;
 }
 
 @keyframes zoom {
@@ -43,17 +44,28 @@ body {
   }
 }
 
-// dea
-
 .heading {
-  margin: 20px 30px;
+  margin: 40px 30px;
   text-align: center;
-  font-family: "Press Start 2P", cursive;
   font-size: 20px;
+  animation: pulsate 10s ease-in-out infinite alternate-reverse;
 }
 
 .main-content {
   height: 100%;
   display: flex;
   justify-content: center;
+}
+
+@keyframes pulsate {
+  100% {
+    text-shadow: 0 0 4px rgb(31, 23, 23), 0 0 6px rgb(75, 73, 54),
+      0 0 10px #74742c, 0 0 18px #d7d778, 0 0 25px #d7d778, 0 0 20px #b8b94d,
+      0 0 30px #b8b94d, 0 0 40px #b8b94d;
+  }
+
+  0% {
+    text-shadow: 0 0 2px #7e6536, 0 0 4px #7e6536, 0 0 6px #7e6536,
+      0 0 10px #7e6536, 0 0 25px #7e6536, 0 0 45px #ff8d00, 0 0 50px #f1dd6b;
+  }
 }

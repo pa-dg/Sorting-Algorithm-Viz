@@ -1,11 +1,13 @@
 .controllers-container {
-  margin: 20px;
+  margin: 10px;
   padding: 10px;
   width: 200px;
   background-color: transparent;
-  border: 2px solid rgb(78, 93, 223);
+  border: 1.5px solid rgb(78, 93, 223);
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -15,6 +17,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 10px;
 }
 
 .buttons-container {
@@ -40,5 +43,7 @@
 }
 
 .legend-container {
+  font-size: 15px;
+  font-family: "Courier New", Courier, monospace;
   margin: 20px 10px 0 10px;
 }
