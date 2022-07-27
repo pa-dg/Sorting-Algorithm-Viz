@@ -8,6 +8,8 @@ import {
   comparisonColor,
   needToBeSwappedColor,
   noSwapNeededColor,
+  isArrayEqual,
+  defaultBarColor,
 } from "./";
 
 export class Sort {
@@ -15,8 +17,8 @@ export class Sort {
     this.size = size; // 30, 40, 50 elements/bars
     this.speed = SortSpeed[speed]; // in milliseconds
     this.sortAlgo = sortAlgo; // bubblesort/insertionsort for now
-    this.array = this.generateRandomArray(this.size); // logic to generate a shuffled array
-    this.animationArray = new AnimationArray(this.array); // instance of animation array
+    this.array = [5, 1, 3, 7, 4]; //this.generateRandomArray(this.size); // logic to generate a shuffled array
+    this.animationArray = new AnimationArray(this.array, this.speed); // instance of animation array
     this.isSorting = false; // boolean to determine if were currently sorting
   }
 
@@ -60,9 +62,19 @@ export class Sort {
       case "bubbleSort":
         this.bubbleSort();
         break;
+
       case "insertionSort":
         this.insertionSort();
         break;
+
+      case "quickSort":
+        this.quickSort(this.array, 0, this.array.length - 1);
+        break;
+
+      case "selectionSort":
+        this.selectionSort();
+        break;
+
       default:
         break;
     }
@@ -73,7 +85,7 @@ export class Sort {
 
     this.array = this.generateRandomArray(this.size);
     this.animationArray.resetBars();
-    this.animationArray = new AnimationArray(this.array);
+    this.animationArray = new AnimationArray(this.array, this.speed);
   }
 
   stop() {
@@ -93,7 +105,7 @@ export class Sort {
     this.size = newSize;
     this.array = this.generateRandomArray(this.size);
     this.animationArray.resetBars();
-    this.animationArray = new AnimationArray(this.array);
+    this.animationArray = new AnimationArray(this.array, this.speed);
   }
 
   updateSpeed(newSpeed) {
@@ -108,6 +120,7 @@ export class Sort {
     this.sortAlgo = Algorithms[newAlgo];
   }
 
+  // SORT FUNCTIONS
   async bubbleSort() {
     console.info("Sorting using bubble sort.");
     let sorted = false;
@@ -161,8 +174,8 @@ export class Sort {
         await this.sleep();
 
         // reset styling
-        currentBar.style.backgroundColor = "rgba(229, 234, 95, 0.5)";
-        nextBar.style.backgroundColor = "rgba(229, 234, 95, 0.5)";
+        currentBar.style.backgroundColor = defaultBarColor;
+        nextBar.style.backgroundColor = defaultBarColor;
         await this.sleep();
       }
     }
@@ -180,50 +193,77 @@ export class Sort {
       if (!this.isSorting) break;
 
       let previousIdx = i - 1;
-      // const previousBar = document.getElementById(
-      //   `bar-${this.array[previousIdx]}`
-      // );
+      let previousBar = document.getElementById(
+        `bar-${this.array[previousIdx]}`
+      );
 
       const current = this.array[i];
-      // const currentBar = document.getElementById(`bar-${current}`);
+      let currentBar = document.getElementById(`bar-${current}`);
 
-      // currentBar.style.backgroundColor = comparisonColor;
-      // previousBar.style.backgroundColor = comparisonColor;
-      // await this.sleep();
+      currentBar.style.backgroundColor = comparisonColor;
+      previousBar.style.backgroundColor = comparisonColor;
+      await this.sleep();
 
       while (previousIdx >= 0 && this.array[previousIdx] > current) {
-        // currentBar.style.backgroundColor = needToBeSwappedColor;
-        // previousBar.style.backgroundColor = needToBeSwappedColor;
-        // await this.sleep();
+        currentBar.style.backgroundColor = needToBeSwappedColor;
+        previousBar.style.backgroundColor = needToBeSwappedColor;
+        await this.sleep();
 
-        // currentBar.setAttribute("id", `bar-${this.array[previousIdx]}`);
-        // currentBar.style.height = `${this.array[previousIdx] * BAR_HEIGHT}px`;
-        // currentBar.innerText = `${this.array[previousIdx]}`;
+        currentBar.setAttribute("id", `bar-${this.array[previousIdx]}`);
+        currentBar.style.height = `${this.array[previousIdx] * BAR_HEIGHT}px`;
+        currentBar.innerText = `${this.array[previousIdx]}`;
+
         this.array[previousIdx + 1] = this.array[previousIdx];
         previousIdx = previousIdx - 1;
       }
+      previousBar.setAttribute("id", `bar-${current}`);
+      previousBar.style.height = `${current * BAR_HEIGHT}px`;
+      previousBar.innerText = `${current}`;
 
-      // previousBar.setAttribute("id", `bar-${current}`);
-      // previousBar.style.height = `${current * BAR_HEIGHT}px`;
-      // previousBar.innerText = `${current}`;
       this.array[previousIdx + 1] = current;
-      // await this.sleep();
+      await this.sleep();
 
       // show that its sorted
-      // currentBar.style.backgroundColor = noSwapNeededColor;
-      // previousBar.style.backgroundColor = noSwapNeededColor;
-      // await this.sleep();
+      currentBar.style.backgroundColor = noSwapNeededColor;
+      previousBar.style.backgroundColor = noSwapNeededColor;
+      await this.sleep();
 
       // reset styling
-      // currentBar.style.backgroundColor = "rgba(229, 234, 95, 0.5)";
-      // previousBar.style.backgroundColor = "rgba(229, 234, 95, 0.5)";
-      // await this.sleep();
+      currentBar.style.backgroundColor = defaultBarColor;
+      previousBar.style.backgroundColor = defaultBarColor;
+      await this.sleep();
     }
     this.isSorting = false;
     playStopBtn.innerText = "Play";
     // TODO: remove
     console.log("ending array", this.array);
     return this.array;
+  }
+
+  async quickSort(items, left, right) {
+    console.info("Sorting using quick sort.");
+
+    let index;
+    let bars = document.getElementsByClassName("bar");
+    if (items.length > 1) {
+      index = await this.animationArray.partition(items, left, right);
+      if (left < index - 1) {
+        await this.quickSort(items, left, index - 1);
+      }
+      if (index < right) {
+        await this.quickSort(items, index, right);
+      }
+    }
+
+    for (let i = 0; i < bars.length; i++) {
+      bars[i].style.backgroundColor = defaultBarColor;
+    }
+    // resets isSorting and playStopBtn
+    this.isSorting = false;
+    playStopBtn.innerText = "Play";
+    // TODO: remove
+    console.log("ending array", items);
+    return items;
   }
 }
 
