@@ -67,12 +67,12 @@ export class Sort {
         this.insertionSort();
         break;
 
-      case "quickSort":
-        this.quickSort(this.array, 0, this.array.length - 1);
-        break;
-
       case "selectionSort":
         this.selectionSort();
+        break;
+
+      case "quickSort":
+        this.quickSort(this.array, 0, this.array.length - 1);
         break;
 
       default:
@@ -240,6 +240,31 @@ export class Sort {
     return this.array;
   }
 
+  async selectionSort() {
+    for (let i = 0; i < this.array.length; i++) {
+      let minIdx = i;
+
+      for (let j = i + 1; j < this.array.length; j++) {
+        const nextIdx = j;
+
+        if (this.array[nextIdx] < this.array[minIdx]) {
+          minIdx = nextIdx;
+        }
+      }
+      if (minIdx != i) {
+        let temp = this.array[i];
+        this.array[i] = this.array[minIdx];
+        this.array[minIdx] = temp;
+      }
+    }
+    // resets isSorting and playStopBtn
+    this.isSorting = false;
+    playStopBtn.innerText = "Play";
+    // TODO: remove
+    console.log("ending array", this.array);
+    return this.array;
+  }
+
   async quickSort(items, left, right) {
     console.info("Sorting using quick sort.");
 
@@ -256,11 +281,11 @@ export class Sort {
     }
 
     for (let i = 0; i < bars.length; i++) {
-      if (!this.isSorting) break;
+      // if (!this.isSorting) break;
       bars[i].style.backgroundColor = defaultBarColor;
     }
     // resets isSorting and playStopBtn
-    this.isSorting = false;
+    // this.isSorting = false;
     playStopBtn.innerText = "Play";
     // TODO: remove
     console.log("ending array", items);

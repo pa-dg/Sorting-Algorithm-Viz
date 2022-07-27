@@ -4,9 +4,8 @@ async function selectionSort(array) {
 
     for (let j = i + 1; j < array.length; j++) {
       const nextIdx = j;
-
-      if (nextIdx < minIdx) {
-        minIdx = nextVal;
+      if (array[nextIdx] < array[minIdx]) {
+        minIdx = nextIdx;
       }
     }
     if (minIdx != i) {
