@@ -5,28 +5,39 @@ import {
   noSwapNeededColor,
   needToBeSwappedColor,
   defaultBarColor,
+  graphContainerTwo,
 } from "./";
 
 export class AnimationArray {
-  constructor(array, speed) {
+  constructor(array, speed, sortInstance) {
     this.array = array;
     this.speed = speed;
-    this.renderBars(this.array);
+    this.sortInstance = sortInstance;
+    this.renderBars();
   }
 
-  renderBars(array) {
+  renderBars() {
     for (let i = 0; i < this.array.length; i++) {
       let bar = document.createElement("div");
       bar.classList.add("bar");
-      bar.style.height = `${array[i] * BAR_HEIGHT}px`;
-      bar.setAttribute("id", `bar-${array[i]}`);
-      bar.innerText = `${array[i]}`;
-      graphContainerOne.appendChild(bar);
+      bar.style.height = `${this.array[i] * BAR_HEIGHT}px`;
+      bar.setAttribute("id", `bar-${this.array[i]}`);
+      bar.innerText = `${this.array[i]}`;
+
+      if (this.sortInstance === 1) {
+        graphContainerOne.appendChild(bar);
+      } else {
+        graphContainerTwo.appendChild(bar);
+      }
     }
   }
 
   resetBars() {
-    graphContainerOne.innerHTML = "";
+    if (this.sortInstance === 1) {
+      graphContainerOne.innerHTML = "";
+    } else {
+      graphContainerTwo.innerHTML = "";
+    }
   }
 
   sleep() {

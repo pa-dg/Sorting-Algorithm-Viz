@@ -13,13 +13,23 @@ import {
 } from "./";
 
 export class Sort {
-  constructor(size = 10, speed = 10, sortAlgo = Algorithms.bubbleSort) {
+  constructor(
+    sortInstance = 1,
+    size = 10,
+    speed = 10,
+    sortAlgo = Algorithms.bubbleSort
+  ) {
+    this.sortInstance = sortInstance;
     this.size = size; // 30, 40, 50 elements/bars
     this.speed = SortSpeed[speed]; // in milliseconds
     this.sortAlgo = sortAlgo; // bubblesort/insertionsort for now
     this.array = this.generateRandomArray(this.size); // logic to generate a shuffled array
     this.isSorting = false; // boolean to determine if were currently sorting
-    this.animationArray = new AnimationArray(this.array, this.speed); // instance of animation array
+    this.animationArray = new AnimationArray(
+      this.array,
+      this.speed,
+      this.sortInstance
+    ); // instance of animation array
   }
 
   generateRandomArray(size) {
@@ -87,7 +97,11 @@ export class Sort {
 
     this.array = this.generateRandomArray(this.size);
     this.animationArray.resetBars();
-    this.animationArray = new AnimationArray(this.array, this.speed);
+    this.animationArray = new AnimationArray(
+      this.array,
+      this.speed,
+      this.sortInstance
+    );
   }
 
   stop() {
@@ -109,7 +123,11 @@ export class Sort {
     this.size = newSize;
     this.array = this.generateRandomArray(this.size);
     this.animationArray.resetBars();
-    this.animationArray = new AnimationArray(this.array, this.speed);
+    this.animationArray = new AnimationArray(
+      this.array,
+      this.speed,
+      this.sortInstance
+    );
   }
 
   updateSpeed(newSpeed) {

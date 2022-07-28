@@ -13,9 +13,11 @@ import {
   updatePlayStopBtn,
   compareBtn,
   sortingScreenTwo,
+  sortingScreenOne,
 } from "./sort";
 
 const sort = new Sort();
+let sortTwo;
 
 playStopBtn.addEventListener("click", function () {
   let playBtn = document.getElementById("play-btn");
@@ -39,15 +41,29 @@ resetBtn.addEventListener("click", function () {
     playStopBtn.appendChild(playBtn);
   }
   sort.reset();
+
+  if (sortTwo) {
+    sortTwo.reset();
+  }
 });
 
 sizeRange.addEventListener("change", function (event) {
   sort.updateSize(event.target.value);
+
+  if (sortTwo) {
+    sortTwo.updateSize(event.target.value);
+  }
+
   sizeOutput.innerHTML = sizeRange.value;
 });
 
 speedRange.addEventListener("change", function (event) {
   sort.updateSpeed(event.target.value);
+
+  if (sortTwo) {
+    sortTwo.updateSpeed(event.target.value);
+  }
+
   speedOutput.innerHTML = speedRange.value;
 });
 
@@ -58,7 +74,36 @@ selectDropdownOne.addEventListener("change", function (event) {
   sort.reset();
 });
 
-compareBtn.addEventListener("click", function () {
-  console.log("compareeee");
-  // sortingScreenTwo.style.display = 'block';
+compareBtn.addEventListener("click", function (event) {
+  if (event.target.innerText === "Compare Algo") {
+    if (!sortTwo) {
+      sortTwo = new Sort(2);
+    }
+
+    // change button text to single algo
+    compareBtn.innerText = "Single Algo";
+
+    // change the width of sorting screen one
+    sortingScreenOne.style.minWidth = "550px";
+    sortingScreenOne.style.width = "550px";
+
+    sortingScreenTwo.style.display = "block";
+  } else {
+    if (sortTwo) {
+      // remove bars
+      sortTwo.animationArray.resetBars();
+
+      // reset sortTwo
+      sortTwo = undefined;
+    }
+
+    // reset sorting screen one width to default
+    sortingScreenOne.style.minWidth = "750px";
+    sortingScreenOne.style.width = "750px";
+
+    // change button text to compare algo
+    compareBtn.innerText = "Compare Algo";
+
+    sortingScreenTwo.style.display = "none";
+  }
 });
