@@ -1,7 +1,7 @@
 import {
   BAR_HEIGHT,
   comparisonColor,
-  graphContainer,
+  graphContainerOne,
   noSwapNeededColor,
   needToBeSwappedColor,
   defaultBarColor,
@@ -21,12 +21,12 @@ export class AnimationArray {
       bar.style.height = `${array[i] * BAR_HEIGHT}px`;
       bar.setAttribute("id", `bar-${array[i]}`);
       bar.innerText = `${array[i]}`;
-      graphContainer.appendChild(bar);
+      graphContainerOne.appendChild(bar);
     }
   }
 
   resetBars() {
-    graphContainer.innerHTML = "";
+    graphContainerOne.innerHTML = "";
   }
 
   sleep() {

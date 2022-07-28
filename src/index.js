@@ -7,10 +7,12 @@ import {
   sizeOutput,
   speedRange,
   speedOutput,
-  selectDropdown,
-  descriptionText,
+  selectDropdownOne,
+  descriptionTextOne,
   updateLegend,
   updatePlayStopBtn,
+  compareBtn,
+  sortingScreenTwo,
 } from "./sort";
 
 const sort = new Sort();
@@ -49,9 +51,14 @@ speedRange.addEventListener("change", function (event) {
   speedOutput.innerHTML = speedRange.value;
 });
 
-selectDropdown.addEventListener("change", function (event) {
-  descriptionText.innerText = AlgoDesc[event.target.value];
+selectDropdownOne.addEventListener("change", function (event) {
+  descriptionTextOne.innerText = AlgoDesc[event.target.value];
   updateLegend(event.target.value);
   sort.updateSortAlgo(event.target.value);
   sort.reset();
+});
+
+compareBtn.addEventListener("click", function () {
+  console.log("compareeee");
+  // sortingScreenTwo.style.display = 'block';
 });

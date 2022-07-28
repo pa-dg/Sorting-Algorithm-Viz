@@ -13,6 +13,7 @@
 
 .size-control,
 .speed-control {
+  font-family: "Press Start 2P", cursive;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -50,10 +51,16 @@
   cursor: pointer;
 }
 
+.compare-btn {
+  border: 1px solid red;
+  background: grey;
+  padding: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 .legend-container {
-  height: 200px;
   font-size: 15px;
-  font-family: "Courier New", Courier, monospace;
   margin: 0 10px;
   display: flex;
   flex-direction: column;

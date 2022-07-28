@@ -3,7 +3,7 @@ import {
   Algorithms,
   SortSpeed,
   BAR_HEIGHT,
-  graphContainer,
+  graphContainerOne,
   comparisonColor,
   needToBeSwappedColor,
   noSwapNeededColor,
@@ -53,7 +53,7 @@ export class Sort {
     // TODO: remove
     console.log("starting array", this.array);
     // catch all in-case bars are not rendered
-    if (!graphContainer.hasChildNodes()) {
+    if (!graphContainerOne.hasChildNodes()) {
       this.animationArray.renderBars(this.array);
     }
     this.isSorting = true;

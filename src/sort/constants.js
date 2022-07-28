@@ -49,16 +49,21 @@ export const SortSpeed = {
 
 export const BAR_HEIGHT = 6;
 
-export const graphContainer = document.getElementById("graph-container");
+export const sortingScreenOne = document.getElementById("sorting-screen-1");
+export const graphContainerOne = document.getElementById("graph-container-1");
+export const selectDropdownOne = document.getElementById("select-algo-1");
+export const descriptionTextOne = document.getElementById("description-text-1");
+
+export const sortingScreenTwo = document.getElementById("sorting-screen-2");
+
 export const playStopBtn = document.getElementById("play-stop-btn");
 export const resetBtn = document.getElementById("reset-btn");
 export const sizeRange = document.getElementById("size");
 export const sizeOutput = document.getElementById("size-output");
 export const speedOutput = document.getElementById("speed-output");
 export const speedRange = document.getElementById("speed");
-export const selectDropdown = document.getElementById("select-algo");
-export const descriptionText = document.getElementById("description-text");
 export const legendContainer = document.getElementById("legend-container");
+export const compareBtn = document.getElementById("compare-btn");
 
 export const comparisonColor = "grey";
 export const needToBeSwappedColor = "red";

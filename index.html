@@ -17,12 +17,11 @@
     <h1 class="heading">Sorting Algorithm Viz</h1>
 
     <div class="main-content">
-        <div class="sorting-screen">
-
-            <div id="graph-container" class="graph-container"></div>
+        <div id="sorting-screen-1" class="sorting-screen">
+            <div id="graph-container-1" class="graph-container"></div>
 
             <div class="selection-algo">
-                <select name="select-algo" id="select-algo">
+                <select name="select-algo" id="select-algo-1" class="select-algo">
                     <option value="bubbleSort">Bubble Sort</option>
                     <!-- <option value="insertionSort">Insertion Sort</option> -->
                     <option value="selectionSort">Selection Sort</option>
@@ -33,7 +32,7 @@
             <div class="graph-description">
                 <div>Description:</div>
                 <br>
-                <span id="description-text">
+                <span id="description-text-1">
                     Bubble sort is a simple sorting algorithm. This sorting algorithm is comparison-based algorithm in which each pair of
                     adjacent elements is compared and the elements are swapped if they are not in order. This algorithm is not suitable for
                     large data sets as its average and worst case complexity are of Ο(n^2) where n is the number of items.
@@ -41,9 +40,31 @@
             </div>
         </div>
 
-        <div class="controllers-container">
-            <!-- <button id="compare-single-algo-btn">Compare Algo</button> -->
+        <div id="sorting-screen-2" class="sorting-screen sorting-screen-2">
+            <div id="graph-container-2" class="graph-container"></div>
+        
+            <div class="selection-algo">
+                <select name="select-algo" id="select-algo-2" class="select-algo">
+                    <option value="bubbleSort">Bubble Sort</option>
+                    <option value="selectionSort">Selection Sort</option>
+                    <option value="quickSort">Quick Sort</option>
+                </select>
+            </div>
+        
+            <div class="graph-description">
+                <div>Description:</div>
+                <br>
+                <span id="description-text-2">
+                    Bubble sort is a simple sorting algorithm. This sorting algorithm is comparison-based algorithm in which
+                    each pair of
+                    adjacent elements is compared and the elements are swapped if they are not in order. This algorithm is not
+                    suitable for
+                    large data sets as its average and worst case complexity are of Ο(n^2) where n is the number of items.
+                </span>
+            </div>
+        </div>
 
+        <div class="controllers-container">
             <div class="size-control">
                 <label for="size">
                     Size:
@@ -69,6 +90,8 @@
                     <i class="fa-solid fa-arrows-rotate fa-2x"></i>
                 </div>
             </div>
+
+            <div id="compare-btn" class="compare-btn">Compare</div>
 
             <div id="legend-container" class="legend-container">
                 <div>Legend:</div>

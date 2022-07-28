@@ -16,6 +16,7 @@
 
 .size-control,
 .speed-control {
+  font-family: "Press Start 2P", cursive;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,10 +52,16 @@
   cursor: pointer;
 }
 
+.compare-btn {
+  border: 1px solid red;
+  background: grey;
+  padding: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 .legend-container {
-  height: 200px;
   font-size: 15px;
-  font-family: "Courier New", Courier, monospace;
   margin: 0 10px;
   display: flex;
   flex-direction: column;
@@ -70,6 +77,10 @@
   margin: 10px;
   color: aliceblue;
   background-color: transparent;
+}
+
+.sorting-screen-2 {
+  display: none;
 }
 
 .graph-container {
@@ -101,10 +112,10 @@
   align-items: center;
   height: 50px;
   background-color: transparent;
-  margin-top: 20px;
+  margin: 20px 0;
 }
 
-#select-algo {
+.select-algo {
   font-family: "Press Start 2P", cursive;
   font-size: 10px;
   text-align: center;
@@ -117,7 +128,7 @@
   cursor: pointer;
 }
 
-#select-algo:hover {
+.select-algo:hover {
   background-color: transparent;
   border-color: #ccbe3f;
   color: #ccbe3f;
@@ -126,8 +137,6 @@
 .graph-description {
   margin-top: 0px;
   padding: 2px;
-  font-size: 15px;
-  font-family: "Courier New", Courier, monospace;
   font-size: 14px;
 }
 
@@ -135,7 +144,7 @@ body {
   background-color: #04040a;
   color: rgb(204, 190, 63);
   margin: 50px;
-  font-family: "Press Start 2P", cursive;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .main {
@@ -160,11 +169,12 @@ body {
   margin: 40px 30px;
   text-align: center;
   font-size: 20px;
+  font-family: "Press Start 2P", cursive;
   animation: pulsate 10s ease-in-out infinite alternate-reverse;
 }
 
 .main-content {
-  height: 550px;
+  height: 580px;
   display: flex;
   justify-content: center;
 }

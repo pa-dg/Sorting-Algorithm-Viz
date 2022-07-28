@@ -6,6 +6,10 @@
   background-color: transparent;
 }
 
+.sorting-screen-2 {
+  display: none;
+}
+
 .graph-container {
   display: flex;
   justify-content: center;
@@ -35,10 +39,10 @@
   align-items: center;
   height: 50px;
   background-color: transparent;
-  margin-top: 20px;
+  margin: 20px 0;
 }
 
-#select-algo {
+.select-algo {
   font-family: "Press Start 2P", cursive;
   font-size: 10px;
   text-align: center;
@@ -51,7 +55,7 @@
   cursor: pointer;
 }
 
-#select-algo:hover {
+.select-algo:hover {
   background-color: transparent;
   border-color: #ccbe3f;
   color: #ccbe3f;
@@ -60,7 +64,5 @@
 .graph-description {
   margin-top: 0px;
   padding: 2px;
-  font-size: 15px;
-  font-family: "Courier New", Courier, monospace;
   font-size: 14px;
 }
