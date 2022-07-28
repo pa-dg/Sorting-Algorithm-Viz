@@ -35,13 +35,24 @@
 .stop-btn {
   cursor: pointer;
   color: #155eab;
-  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #89934f, 0 0 42px #89934f, 0 0 82px #89934f, 0 0 92px #89934f, 0 0 102px #89934f, 0 0 151px #0fa;
+}
+
+.play-btn:hover,
+.stop-btn:hover {
+  background-color: transparent;
+  border-color: #70d9b1;
+  color: #70d9b1;
 }
 
 #reset-btn {
   cursor: pointer;
   color: #155eab;
-  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #89934f, 0 0 42px #89934f, 0 0 82px #89934f, 0 0 92px #89934f, 0 0 102px #89934f, 0 0 151px #0fa;
+}
+
+#reset-btn:hover {
+  background-color: transparent;
+  border-color: #70d9b1;
+  color: #70d9b1;
 }
 
 .play-stop-btn {
@@ -53,11 +64,21 @@
 }
 
 .compare-btn {
-  border: 1px solid red;
-  background: grey;
-  padding: 4px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 10px;
+  text-align: center;
+  color: #4e5ddf;
+  border: 1px solid #4e5ddf;
+  background: transparent;
+  padding: 5px;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.compare-btn:hover {
+  background-color: transparent;
+  border-color: #70d9b1;
+  color: #70d9b1;
 }
 
 .legend-container {
@@ -66,6 +87,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  font-family: "Press Start 2P", cursive;
+  font-size: 11px;
 }
 .legend-container div:not(:last-child) {
   margin-bottom: 20px;
@@ -75,7 +98,7 @@
   min-width: 750px;
   width: 750px;
   margin: 10px;
-  color: aliceblue;
+  color: #b7c2ea;
   background-color: transparent;
 }
 
@@ -132,19 +155,19 @@
 
 .select-algo:hover {
   background-color: transparent;
-  border-color: #ccbe3f;
-  color: #ccbe3f;
+  border-color: #70d9b1;
+  color: #70d9b1;
 }
 
 .graph-description {
   margin-top: 0px;
   padding: 2px;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 body {
   background-color: #04040a;
-  color: rgb(204, 190, 63);
+  color: #ccbe3f;
   margin: 50px;
   font-family: "Courier New", Courier, monospace;
 }
@@ -170,7 +193,7 @@ body {
 .heading {
   margin: 40px 30px;
   text-align: center;
-  font-size: 20px;
+  font-size: 25px;
   font-family: "Press Start 2P", cursive;
   animation: pulsate 10s ease-in-out infinite alternate-reverse;
 }
@@ -183,9 +206,27 @@ body {
 
 @keyframes pulsate {
   100% {
-    text-shadow: 0 0 4px #647d2f, 0 0 6px #aea556, 0 0 10px #abab68, 0 0 18px #d7d778, 0 0 25px #d7d778, 0 0 20px #b8b94d, 0 0 30px #b8b94d, 0 0 40px #b8b94d;
+    text-shadow: 0 0 4px #77923d, 0 0 6px #536e39, 0 0 10px #6c9843, 0 0 12px #3f672e, 0 0 18px #5a8548, 0 0 20px #4f8021, 0 0 25px #599630;
   }
   0% {
-    text-shadow: 0 0 2px #7e6536, 0 0 4px #7e6536, 0 0 6px #7e6536, 0 0 10px #7e6536, 0 0 25px #7e6536, 0 0 45px #ff8d00, 0 0 50px #f1dd6b;
+    text-shadow: 0 0 2px #7e6536, 0 0 4px #7e6536, 0 0 6px #7e6536, 0 0 10px #7e6536, 0 0 25px #7e6536, 0 0 45px #ff8d00;
   }
+}
+.socials {
+  margin: 80px 0 0 0;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.social-icon {
+  margin: 0 7px 0 7px;
+}
+
+.social-icon a {
+  color: rgb(112, 217, 177) !important;
+}
+
+.social-icon a:hover {
+  color: #eee18d !important;
 }

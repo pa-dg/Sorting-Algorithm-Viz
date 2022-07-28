@@ -32,15 +32,24 @@
 .stop-btn {
   cursor: pointer;
   color: #155eab;
-  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #89934f, 0 0 42px #89934f,
-    0 0 82px #89934f, 0 0 92px #89934f, 0 0 102px #89934f, 0 0 151px #0fa;
+}
+
+.play-btn:hover,
+.stop-btn:hover {
+  background-color: transparent;
+  border-color: #70d9b1;
+  color: #70d9b1;
 }
 
 #reset-btn {
   cursor: pointer;
   color: #155eab;
-  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #89934f, 0 0 42px #89934f,
-    0 0 82px #89934f, 0 0 92px #89934f, 0 0 102px #89934f, 0 0 151px #0fa;
+}
+
+#reset-btn:hover {
+  background-color: transparent;
+  border-color: #70d9b1;
+  color: #70d9b1;
 }
 
 .play-stop-btn {
@@ -52,11 +61,21 @@
 }
 
 .compare-btn {
-  border: 1px solid red;
-  background: grey;
-  padding: 4px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 10px;
+  text-align: center;
+  color: #4e5ddf;
+  border: 1px solid #4e5ddf;
+  background: transparent;
+  padding: 5px;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.compare-btn:hover {
+  background-color: transparent;
+  border-color: #70d9b1;
+  color: #70d9b1;
 }
 
 .legend-container {
@@ -65,6 +84,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  font-family: "Press Start 2P", cursive;
+  font-size: 11px;
 
   div:not(:last-child) {
     margin-bottom: 20px;
