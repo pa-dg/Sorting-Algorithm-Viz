@@ -46,3 +46,8 @@ export function resetBarsStyling() {
     bars[i].style.backgroundColor = defaultBarColor;
   }
 }
+
+// function to display single digit numbers as two digits
+export function displayTwoDigits(num) {
+  return num < 10 ? "0" + num : num.toString();
+}

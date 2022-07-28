@@ -3,6 +3,7 @@ import {
   Algorithms,
   SortSpeed,
   BAR_HEIGHT,
+  Runtime,
   graphContainerOne,
   comparisonColor,
   needToBeSwappedColor,
@@ -30,6 +31,7 @@ export class Sort {
       this.speed,
       this.sortInstance
     ); // instance of animation array
+    this.runtime = new Runtime();
   }
 
   generateRandomArray(size) {
@@ -59,6 +61,18 @@ export class Sort {
     return arr;
   }
 
+  endSort() {
+    this.runtime.stop();
+
+    if (this.sortAlgo !== "quickSort") {
+      // resets isSorting and playStopBtn
+      this.isSorting = false;
+    }
+    updatePlayStopBtn(this.isSorting);
+
+    console.log("ending array", this.array);
+  }
+
   async play() {
     // TODO: remove
     console.log("starting array", this.array);
@@ -70,6 +84,7 @@ export class Sort {
 
     switch (this.sortAlgo) {
       case "bubbleSort":
+        this.runtime.start(Date.now(), this.sortInstance);
         this.bubbleSort();
         break;
 
@@ -78,13 +93,14 @@ export class Sort {
         break;
 
       case "selectionSort":
+        this.runtime.start(Date.now(), this.sortInstance);
         this.selectionSort();
         break;
 
       case "quickSort":
+        this.runtime.start(Date.now(), this.sortInstance);
         await this.quickSort(this.array, 0, this.array.length - 1);
-        this.isSorting = false;
-        updatePlayStopBtn(this.isSorting);
+        this.endSort();
         break;
 
       default:
@@ -93,6 +109,10 @@ export class Sort {
   }
 
   reset() {
+    if (this.runtime.isRunning) {
+      this.runtime.stop();
+    }
+
     this.isSorting = false;
 
     this.array = this.generateRandomArray(this.size);
@@ -102,10 +122,12 @@ export class Sort {
       this.speed,
       this.sortInstance
     );
+    this.runtime.reset();
   }
 
   stop() {
     this.isSorting = false;
+    this.runtime.stop();
   }
 
   sleep() {
@@ -211,12 +233,7 @@ export class Sort {
       }
     }
 
-    // resets isSorting and playStopBtn
-    this.isSorting = false;
-    updatePlayStopBtn(this.isSorting);
-
-    // TODO: remove
-    console.log("ending array", this.array);
+    this.endSort();
     return this.array;
   }
 
@@ -353,13 +370,7 @@ export class Sort {
         await this.sleep();
       }
     }
-
-    // resets isSorting and playStopBtn
-    this.isSorting = false;
-    updatePlayStopBtn(this.isSorting);
-
-    // TODO: remove
-    console.log("ending array", this.array);
+    this.endSort();
     return this.array;
   }
 
@@ -392,9 +403,6 @@ export class Sort {
       }
       bars[i].style.backgroundColor = defaultBarColor;
     }
-
-    // TODO: remove
-    console.log("ending array", items);
     return items;
   }
 }

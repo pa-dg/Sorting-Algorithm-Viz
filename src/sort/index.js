@@ -1,4 +1,5 @@
 export * from "./AnimationArray";
+export * from "./Runtime";
 export * from "./Sort";
 export * from "./constants";
 export * from "./util";

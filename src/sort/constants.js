@@ -64,6 +64,11 @@ export const graphContainerTwo = document.getElementById("graph-container-2");
 export const selectDropdownTwo = document.getElementById("select-algo-2");
 export const descriptionTextTwo = document.getElementById("description-text-2");
 
+// runtime for sorting 2
+export const displayMilliSecTwo = document.getElementById("milliseconds-2");
+export const displaySecTwo = document.getElementById("seconds-2");
+export const displayMinTwo = document.getElementById("minutes-2");
+
 export const playStopBtn = document.getElementById("play-stop-btn");
 export const resetBtn = document.getElementById("reset-btn");
 export const sizeRange = document.getElementById("size");
