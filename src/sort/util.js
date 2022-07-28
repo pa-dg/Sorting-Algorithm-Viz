@@ -13,7 +13,11 @@ export function updateLegend(sortAlgo) {
 
   Object.keys(SortLegend).forEach((legendColor) => {
     let legend = document.createElement("div");
-    legend.innerText = `${legendColor}: ${SortLegend[legendColor]}`;
+    let span = document.createElement("span");
+    span.style.color = `${legendColor.toLowerCase()}`;
+    span.innerText = `${legendColor}`;
+    legend.innerText = `: ${SortLegend[legendColor]}`;
+    legend.prepend(span);
     legendContainer.appendChild(legend);
   });
 }
