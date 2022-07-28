@@ -49,7 +49,7 @@ export class Sort {
     return arr;
   }
 
-  play() {
+  async play() {
     // TODO: remove
     console.log("starting array", this.array);
     // catch all in-case bars are not rendered
@@ -72,7 +72,9 @@ export class Sort {
         break;
 
       case "quickSort":
-        this.quickSort(this.array, 0, this.array.length - 1);
+        await this.quickSort(this.array, 0, this.array.length - 1);
+        this.isSorting = false;
+        updatePlayStopBtn(this.isSorting);
         break;
 
       default:
@@ -356,10 +358,6 @@ export class Sort {
       }
       bars[i].style.backgroundColor = defaultBarColor;
     }
-
-    // reset isSorting and playStopBtn
-    this.isSorting = false;
-    updatePlayStopBtn(this.isSorting);
 
     // TODO: remove
     console.log("ending array", items);
