@@ -20,8 +20,9 @@ export class AnimationArray {
     for (let i = 0; i < this.array.length; i++) {
       let bar = document.createElement("div");
       bar.classList.add("bar");
+      bar.classList.add(`bar-sort${this.sortInstance}`);
       bar.style.height = `${this.array[i] * BAR_HEIGHT}px`;
-      bar.setAttribute("id", `bar-${this.array[i]}`);
+      bar.setAttribute("id", `bar-${this.array[i]}-sort${this.sortInstance}`);
       bar.innerText = `${this.array[i]}`;
 
       if (this.sortInstance === 1) {
@@ -49,11 +50,11 @@ export class AnimationArray {
     array[i] = array[j];
     array[j] = temp;
 
-    bars[i].setAttribute("id", `bar-${array[i]}`);
+    bars[i].setAttribute("id", `bar-${array[i]}-sort${this.sortInstance}`);
     bars[i].style.height = `${array[i] * BAR_HEIGHT}px`;
     bars[i].innerText = `${array[i]}`;
 
-    bars[j].setAttribute("id", `bar-${array[j]}`);
+    bars[j].setAttribute("id", `bar-${array[j]}-sort${this.sortInstance}`);
     bars[j].style.height = `${array[j] * BAR_HEIGHT}px`;
     bars[j].innerText = `${array[j]}`;
 
@@ -70,7 +71,7 @@ export class AnimationArray {
   }
 
   async partition(items, left, right) {
-    let bars = document.getElementsByClassName("bar");
+    let bars = document.getElementsByClassName(`bar-sort${this.sortInstance}`);
     let pivotIndex = Math.floor((right + left) / 2);
     const pivotElement = items[pivotIndex]; // middle element
 

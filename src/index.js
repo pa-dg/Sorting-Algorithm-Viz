@@ -14,6 +14,8 @@ import {
   compareBtn,
   sortingScreenTwo,
   sortingScreenOne,
+  selectDropdownTwo,
+  descriptionTextTwo,
 } from "./sort";
 
 const sort = new Sort();
@@ -24,8 +26,16 @@ playStopBtn.addEventListener("click", function () {
 
   if (playBtn) {
     sort.play();
+
+    if (sortTwo) {
+      sortTwo.play();
+    }
   } else {
     sort.stop();
+
+    if (sortTwo) {
+      sortTwo.stop();
+    }
   }
 
   updatePlayStopBtn(sort.isSorting);
@@ -72,6 +82,15 @@ selectDropdownOne.addEventListener("change", function (event) {
   updateLegend(event.target.value);
   sort.updateSortAlgo(event.target.value);
   sort.reset();
+});
+
+selectDropdownTwo.addEventListener("change", function (event) {
+  descriptionTextTwo.innerText = AlgoDesc[event.target.value];
+  // updateLegend(event.target.value);
+  console.log("sort instance", sortTwo);
+
+  sortTwo.updateSortAlgo(event.target.value);
+  sortTwo.reset();
 });
 
 compareBtn.addEventListener("click", function (event) {

@@ -159,11 +159,15 @@ export class Sort {
 
         // current element & its bar representation
         const current = this.array[i];
-        const currentBar = document.getElementById(`bar-${current}`);
+        const currentBar = document.getElementById(
+          `bar-${current}-sort${this.sortInstance}`
+        );
 
         // next element & its bar representation
         const next = this.array[i + 1];
-        const nextBar = document.getElementById(`bar-${next}`);
+        const nextBar = document.getElementById(
+          `bar-${next}-sort${this.sortInstance}`
+        );
 
         currentBar.style.backgroundColor = comparisonColor;
         nextBar.style.backgroundColor = comparisonColor;
@@ -181,14 +185,14 @@ export class Sort {
 
           // switch current element & its bar representation
           // to next element & its bar representation
-          currentBar.setAttribute("id", `bar-${next}`);
+          currentBar.setAttribute("id", `bar-${next}-sort${this.sortInstance}`);
           currentBar.style.height = `${next * BAR_HEIGHT}px`;
           currentBar.innerText = `${next}`;
           this.array[i] = next;
 
           // switch next element & its bar representation
           // to current element & its bar representation
-          nextBar.setAttribute("id", `bar-${current}`);
+          nextBar.setAttribute("id", `bar-${current}-sort${this.sortInstance}`);
           nextBar.style.height = `${current * BAR_HEIGHT}px`;
           nextBar.innerText = `${current}`;
           this.array[i + 1] = current;
@@ -288,7 +292,7 @@ export class Sort {
 
         if (this.array[nextIdx] < this.array[minIdx]) {
           const currentMinBar = document.getElementById(
-            `bar-${this.array[nextIdx]}`
+            `bar-${this.array[nextIdx]}-sort${this.sortInstance}`
           );
           // represent that this is the current min value in this iteration
           currentMinBar.style.backgroundColor = comparisonColor;
@@ -303,8 +307,14 @@ export class Sort {
       }
 
       if (minIdx !== i) {
-        const currentBar = document.getElementById(`bar-${this.array[i]}`);
-        const nextBar = document.getElementById(`bar-${this.array[minIdx]}`);
+        const currentBar = document.getElementById(
+          `bar-${this.array[i]}-sort${this.sortInstance}`
+        );
+        const nextBar = document.getElementById(
+          `bar-${this.array[minIdx]}-sort${this.sortInstance}`
+        );
+
+        if (!currentBar) debugger;
 
         // represent that two elements need to be swapped
         currentBar.style.backgroundColor = needToBeSwappedColor;
@@ -312,11 +322,17 @@ export class Sort {
         await this.sleep();
 
         // visual bar swapping
-        currentBar.setAttribute("id", `bar-${this.array[minIdx]}`);
+        currentBar.setAttribute(
+          "id",
+          `bar-${this.array[minIdx]}-sort${this.sortInstance}`
+        );
         currentBar.style.height = `${this.array[minIdx] * BAR_HEIGHT}px`;
         currentBar.innerText = `${this.array[minIdx]}`;
 
-        nextBar.setAttribute("id", `bar-${this.array[i]}`);
+        nextBar.setAttribute(
+          "id",
+          `bar-${this.array[i]}-sort${this.sortInstance}`
+        );
         nextBar.style.height = `${this.array[i] * BAR_HEIGHT}px`;
         nextBar.innerText = `${this.array[i]}`;
         await this.sleep();
@@ -350,7 +366,7 @@ export class Sort {
   async quickSort(items, left, right) {
     console.info("Sorting using quick sort.");
     let index;
-    let bars = document.getElementsByClassName("bar");
+    let bars = document.getElementsByClassName(`bar-sort${this.sortInstance}`);
     if (items.length > 1) {
       index = await this.animationArray.partition(items, left, right);
       if (left < index - 1) {

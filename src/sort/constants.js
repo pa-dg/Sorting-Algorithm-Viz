@@ -56,6 +56,8 @@ export const descriptionTextOne = document.getElementById("description-text-1");
 
 export const sortingScreenTwo = document.getElementById("sorting-screen-2");
 export const graphContainerTwo = document.getElementById("graph-container-2");
+export const selectDropdownTwo = document.getElementById("select-algo-2");
+export const descriptionTextTwo = document.getElementById("description-text-2");
 
 export const playStopBtn = document.getElementById("play-stop-btn");
 export const resetBtn = document.getElementById("reset-btn");
