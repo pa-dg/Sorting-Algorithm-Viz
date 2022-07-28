@@ -5,23 +5,24 @@
 
 ## Background
 
-<h4>This applications is a JavaScript Data Visualization engine for visualizing various sorting algorithms. This application features few classic sorting algorithms including bubble sort, quick sort, and merge sort. In addition, an option to simulate two sorting algorithms adjacent to one another for audience interested in the comparison of their time and space complexity is provided. This application was built with a goal in mind of serving as a form of visual aid for developers, educators and students alike.</h4>
+This single web-application is a Sorting Algorithm Visualization engine for visualizing various sorting algorithms. This application sorts an unsorted array of numbers using a particular sorting algorithm which includes bubble sort, selection sort, and quick sort. This was developed because I struggled to visualize sorting algorithm in the beginning and had to draw it out for myself. Hence, I developed this to be used as a form of visual aid and for educational purposes.
 
 ## Implemented Sorting Algorithms
 
 - Bubble Sort
+- Selection Sort
 - Quick Sort
-- Merge Sort
 
 ## Functionalities & MVPs
 
 In Sorting Algorithm Visualizer, some of the features available to users include:
 
 - Sorting Visualizer
+- Compare Two Sorting Algorithm
+- Display runtime
 - Algorithm Selector
-- Random Input Generator
 - Adjustable Input Size and Speed
-- Ability to Start, Pause, and Reset
+- Ability to Start, Stop, and Reset
 
 In addition, this project will include:
 
@@ -29,22 +30,23 @@ In addition, this project will include:
 
 ## Wireframes
 
-![WireFrame](https://github.com/pa-dg/Sorting_Algorithmn_Visualizer/blob/master/sortVisualizerWireframe.png)
+<h4>Running a Single-Sorting Algorithm</h4>
+
+![WireFrame](./src/img/single-sorting.png)
+
+<h4>Running a Double-Sorting Algorithms</h4>
+
+![WireFrame](./src/img/double-sorting.png)
 
 ## Technologies, Libraries, APIs
 
-This project will be implemented with the following technologies:
+This project was implemented with the following technologies:
 
-- D3.js library
+- Vanilla DOM
+- HTML/CSS/JavaScript
 - npm to manage project dependencies
-- Webpack and Babel to bundle and transpile the source Javascript code
-
-## Implementation Timeline
-
-- Friday Afternoon & Weekend: Setup project directories and dependecies including getting webpack up and running. Start developing the basic site structure in HTML. Style the webpage in CSS. Starting reading up documentations on D3.js library.
-- Monday: Dedicate this day to start implementing some of the core functionalities in JavaScript.
-- Tuesday: Continue working on the functionalities in JavaScript. Ensure to test.
-- Wednesday: For this day, focus on styling your application and playing around with different color schemes. Make some time to rewrite the production README.
-- Thursday Morning: Deploy to Github pages.
+- Webpack and Babel to bundle and transpile the source JavaScript code
 
 ## Bonus Features
+
+- Added social media links
