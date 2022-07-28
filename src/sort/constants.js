@@ -54,6 +54,11 @@ export const graphContainerOne = document.getElementById("graph-container-1");
 export const selectDropdownOne = document.getElementById("select-algo-1");
 export const descriptionTextOne = document.getElementById("description-text-1");
 
+// runtime for sorting 1
+export const displayMilliSecOne = document.getElementById("milliseconds-1");
+export const displaySecOne = document.getElementById("seconds-1");
+export const displayMinOne = document.getElementById("minutes-1");
+
 export const sortingScreenTwo = document.getElementById("sorting-screen-2");
 export const graphContainerTwo = document.getElementById("graph-container-2");
 export const selectDropdownTwo = document.getElementById("select-algo-2");
