@@ -1,5 +1,5 @@
 <h1 align="center">
-    <a href="https://pa-dg.github.io/sort-viz/" target=”_blank”>Sorting Algorithm Visualizer</a>
+    <a href="https://pa-dg.github.io/Sorting-Algorithm-Viz/" target=”_blank”>Sorting Algorithm Visualizer</a>
     <br>
 </h1>
 
