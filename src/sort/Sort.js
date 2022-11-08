@@ -17,7 +17,7 @@ export class Sort {
   constructor(
     sortInstance = 1,
     size = 10,
-    speed = 10,
+    speed = 5,
     sortAlgo = Algorithms.bubbleSort
   ) {
     this.sortInstance = sortInstance;

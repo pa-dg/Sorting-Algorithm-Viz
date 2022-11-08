@@ -35,16 +35,11 @@ export const AlgoLegends = {
 };
 
 export const SortSpeed = {
-  1: 1000,
-  2: 450,
-  3: 400,
-  4: 350,
-  5: 300,
-  6: 250,
-  7: 200,
-  8: 150,
-  9: 100,
-  10: 50,
+  1: 250,
+  2: 200,
+  3: 150,
+  4: 100,
+  5: 50,
 };
 
 export const BAR_HEIGHT = 6;
