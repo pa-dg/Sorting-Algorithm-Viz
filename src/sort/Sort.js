@@ -16,15 +16,17 @@ import {
 export class Sort {
   constructor(
     sortInstance = 1,
+    array = "",
     size = 10,
     speed = 5,
     sortAlgo = Algorithms.bubbleSort
   ) {
     this.sortInstance = sortInstance;
-    this.size = size; // 30, 40, 50 elements/bars
+    this.size = size; // 10, 20, 30 elements/bars
     this.speed = SortSpeed[speed]; // in milliseconds
-    this.sortAlgo = sortAlgo; // bubblesort/insertionsort for now
-    this.array = this.generateRandomArray(this.size); // logic to generate a shuffled array
+    this.sortAlgo = sortAlgo; // bubblesort/selectionsort/quicksort for now
+    this.array =
+      array && typeof array ? array : this.generateRandomArray(this.size); // logic to generate a shuffled array
     this.isSorting = false; // boolean to determine if were currently sorting
     this.animationArray = new AnimationArray(
       this.array,
@@ -32,6 +34,7 @@ export class Sort {
       this.sortInstance
     ); // instance of animation array
     this.runtime = new Runtime();
+    // console.log("this.array", this.array);
   }
 
   generateRandomArray(size) {
@@ -70,12 +73,13 @@ export class Sort {
     }
     updatePlayStopBtn(this.isSorting);
 
-    console.log("ending array", this.array);
+    // console.log("ending array", this.array);
   }
 
   async play() {
     // TODO: remove
-    console.log("starting array", this.array);
+    // console.log("starting array", this.array);
+
     // catch all in-case bars are not rendered
     if (!graphContainerOne.hasChildNodes()) {
       this.animationArray.renderBars(this.array);
@@ -115,6 +119,8 @@ export class Sort {
 
     this.isSorting = false;
 
+    // this.array =
+    //   array && typeof array ? array : this.generateRandomArray(this.size); // reset sortOne & sortTwo to be same array
     this.array = this.generateRandomArray(this.size);
     this.animationArray.resetBars();
     this.animationArray = new AnimationArray(
@@ -134,7 +140,7 @@ export class Sort {
     return new Promise((resolve) => setTimeout(resolve, this.speed));
   }
 
-  updateSize(newSize) {
+  updateSize(newSize = 10) {
     // disable sorting if currently sorting
     if (this.isSorting) {
       this.isSorting = false;
@@ -161,6 +167,9 @@ export class Sort {
     if (this.isSorting) {
       this.isSorting = false;
     }
+    // const selectedAlgo = document.getElementById("select-algo-2");
+    // console.log(selectedAlgo.selectedIndex);
+
     // reset button
     updatePlayStopBtn(this.isSorting);
     this.sortAlgo = Algorithms[newAlgo];
@@ -168,7 +177,7 @@ export class Sort {
 
   // SORT FUNCTIONS
   async bubbleSort() {
-    console.info("Sorting using bubble sort.");
+    // console.info("Sorting using bubble sort.");
     let sorted = false;
 
     while (!sorted) {
@@ -375,7 +384,7 @@ export class Sort {
   }
 
   async quickSort(items, left, right) {
-    console.info("Sorting using quick sort.");
+    // console.info("Sorting using quick sort.");
     let index;
     let bars = document.getElementsByClassName(`bar-sort${this.sortInstance}`);
     if (items.length > 1) {
