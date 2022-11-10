@@ -47,6 +47,7 @@ export class Runtime {
   }
 
   reset() {
+    this.stop();
     displayMilliSecOne.innerHTML = "00";
     displaySecOne.innerHTML = "00";
     displayMinOne.innerHTML = "00";
