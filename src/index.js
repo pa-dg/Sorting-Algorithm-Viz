@@ -54,10 +54,17 @@ resetBtn.addEventListener("click", function () {
 
   if (sortTwo) {
     sortTwo.reset();
+    // sortTwo.reset(sort.array);
+    // TO REMOVE:
+    // console.log("sortTwoArr", sortTwo.array);
   }
 });
 
 sizeRange.addEventListener("change", function (event) {
+  if (sort.isSorting) {
+    sort.reset();
+    updatePlayStopBtn("sort", sort.isSorting);
+  }
   sort.updateSize(event.target.value);
 
   if (sortTwo) {
@@ -80,23 +87,34 @@ speedRange.addEventListener("change", function (event) {
 selectDropdownOne.addEventListener("change", function (event) {
   descriptionTextOne.innerText = AlgoDesc[event.target.value];
   updateLegend(event.target.value);
+
   sort.updateSortAlgo(event.target.value);
   sort.reset();
+  // if (sortTwo) {
+  //   sortTwo.reset(sort.array);
+  //   console.log("sortTwo", sortTwo.array);
+  // }
+  // console.log("sortOne", sort.array);
 });
 
 selectDropdownTwo.addEventListener("change", function (event) {
   descriptionTextTwo.innerText = AlgoDesc[event.target.value];
-  // updateLegend(event.target.value);
-  console.log("sort instance", sortTwo);
+  updateLegend(event.target.value);
 
   sortTwo.updateSortAlgo(event.target.value);
   sortTwo.reset();
+  // sort.reset(sortTwo.array);
+  // console.log("sortOne", sort.array);
+  // console.log("sortTwo", sortTwo.array);
 });
 
 compareBtn.addEventListener("click", function (event) {
   if (event.target.innerText === "Compare Algo") {
     if (!sortTwo) {
-      sortTwo = new Sort(2);
+      sort.runtime.reset();
+      sort.updateSize(); // reset to default size
+      console.log("sortOne", sort);
+      sortTwo = new Sort(2, sort.array); // ensure sortTwo will have the same array as sortOne
     }
 
     // change button text to single algo
@@ -109,12 +127,16 @@ compareBtn.addEventListener("click", function (event) {
     sortingScreenTwo.style.display = "block";
   } else {
     if (sortTwo) {
+      // reset if sort is running
+      sort.reset();
+
       // remove bars
       sortTwo.animationArray.resetBars();
 
       // reset sortTwo
       sortTwo = undefined;
     }
+    // sort.reset(); // reset sortOne
 
     // reset sorting screen one width to default
     sortingScreenOne.style.minWidth = "750px";
