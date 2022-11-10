@@ -63,8 +63,13 @@ resetBtn.addEventListener("click", function () {
 sizeRange.addEventListener("change", function (event) {
   if (sort.isSorting) {
     sort.reset();
-    updatePlayStopBtn("sort", sort.isSorting);
+    updatePlayStopBtn(sort.isSorting);
   }
+  if (sortTwo.isSorting) {
+    sortTwo.reset();
+    updatePlayStopBtn(sortTwo.isSorting);
+  }
+
   sort.updateSize(event.target.value);
 
   if (sortTwo) {
