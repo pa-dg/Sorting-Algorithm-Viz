@@ -53,8 +53,8 @@ resetBtn.addEventListener("click", function () {
   sort.reset();
 
   if (sortTwo) {
-    sortTwo.reset();
-    // sortTwo.reset(sort.array);
+    console.log("sortTwo", sortTwo);
+    sortTwo.reset([...sort.array]);
     // TO REMOVE:
     // console.log("sortTwoArr", sortTwo.array);
   }
@@ -65,7 +65,7 @@ sizeRange.addEventListener("change", function (event) {
     sort.reset();
     updatePlayStopBtn(sort.isSorting);
   }
-  if (sortTwo.isSorting) {
+  if (sortTwo && sortTwo.isSorting) {
     sortTwo.reset();
     updatePlayStopBtn(sortTwo.isSorting);
   }
@@ -95,11 +95,11 @@ selectDropdownOne.addEventListener("change", function (event) {
 
   sort.updateSortAlgo(event.target.value);
   sort.reset();
-  // if (sortTwo) {
-  //   sortTwo.reset(sort.array);
-  //   console.log("sortTwo", sortTwo.array);
-  // }
-  // console.log("sortOne", sort.array);
+  if (sortTwo) {
+    sortTwo.reset([...sort.array]);
+    console.log("sortTwo", sortTwo.array);
+  }
+  console.log("sortOne", sort.array);
 });
 
 selectDropdownTwo.addEventListener("change", function (event) {
@@ -108,18 +108,18 @@ selectDropdownTwo.addEventListener("change", function (event) {
 
   sortTwo.updateSortAlgo(event.target.value);
   sortTwo.reset();
-  // sort.reset(sortTwo.array);
-  // console.log("sortOne", sort.array);
-  // console.log("sortTwo", sortTwo.array);
+  sort.reset([...sortTwo.array]);
 });
 
 compareBtn.addEventListener("click", function (event) {
   if (event.target.innerText === "Compare Algo") {
     if (!sortTwo) {
-      sort.runtime.reset();
-      sort.updateSize(); // reset to default size
-      console.log("sortOne", sort);
-      sortTwo = new Sort(2, sort.array); // ensure sortTwo will have the same array as sortOne
+      sort.reset();
+      sortTwo = new Sort(2, [...sort.array]); // ensure sortTwo will have the same array as sortOne
+      // sortTwo.updateSortAlgo(sortTwo.sortAlgo);
+      // console.log("#", sortTwo.sortAlgo);
+
+      // console.log("sortTwo", sortTwo);
     }
 
     // change button text to single algo
@@ -139,7 +139,9 @@ compareBtn.addEventListener("click", function (event) {
       sortTwo.animationArray.resetBars();
 
       // reset sortTwo
+      console.log("#", sortTwo);
       sortTwo = undefined;
+      console.log("#", sortTwo);
     }
     // sort.reset(); // reset sortOne
 

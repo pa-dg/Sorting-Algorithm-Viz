@@ -16,10 +16,10 @@ import {
 export class Sort {
   constructor(
     sortInstance = 1,
-    array = "",
+    array = undefined,
+    sortAlgo = Algorithms.bubbleSort,
     size = 10,
-    speed = 5,
-    sortAlgo = Algorithms.bubbleSort
+    speed = 5
   ) {
     this.sortInstance = sortInstance;
     this.size = size; // 10, 20, 30 elements/bars
@@ -71,9 +71,14 @@ export class Sort {
       // resets isSorting and playStopBtn
       this.isSorting = false;
     }
+
+    if (this.sortInstance === 1 && this.sortAlgo === "quickSort") {
+      this.isSorting = false;
+    }
+
     updatePlayStopBtn(this.isSorting);
 
-    // console.log("ending array", this.array);
+    console.log("ending array", this.array);
   }
 
   async play() {
@@ -112,16 +117,16 @@ export class Sort {
     }
   }
 
-  reset() {
+  reset(array) {
     if (this.runtime.isRunning) {
       this.runtime.stop();
     }
 
     this.isSorting = false;
 
-    // this.array =
-    //   array && typeof array ? array : this.generateRandomArray(this.size); // reset sortOne & sortTwo to be same array
-    this.array = this.generateRandomArray(this.size);
+    this.array =
+      array && typeof array ? array : this.generateRandomArray(this.size); // reset sortOne & sortTwo to be same array
+    // this.array = this.generateRandomArray(this.size);
     this.animationArray.resetBars();
     this.animationArray = new AnimationArray(
       this.array,
@@ -302,6 +307,7 @@ export class Sort {
   // }
 
   async selectionSort() {
+    console.log("#", this.array);
     for (let i = 0; i < this.array.length; i++) {
       if (!this.isSorting) {
         resetBarsStyling();
