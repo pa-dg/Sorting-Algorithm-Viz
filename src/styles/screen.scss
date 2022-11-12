@@ -25,9 +25,11 @@
 
 .bar {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 6.5px;
-  color: black;
-  width: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  text-indent: 2px;
+  color: rgb(0, 0, 0);
+  width: 40px;
   background-color: #d5cf6291;
   border-radius: 2px;
   border: 1px solid #eded8a;
@@ -55,6 +57,10 @@
   border: 1px solid #4e5ddf;
   border-radius: 10px;
   cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .select-algo:hover {
@@ -66,5 +72,9 @@
 .graph-description {
   margin-top: 0px;
   padding: 2px;
-  font-size: 15px;
+  font-size: 16px;
+
+  span {
+    line-height: 1.2;
+  }
 }

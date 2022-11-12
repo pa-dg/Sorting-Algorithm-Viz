@@ -42,7 +42,7 @@ export const SortSpeed = {
   5: 50,
 };
 
-export const BAR_HEIGHT = 6;
+export const BAR_HEIGHT = 10;
 
 export const sortingScreenOne = document.getElementById("sorting-screen-1");
 export const graphContainerOne = document.getElementById("graph-container-1");

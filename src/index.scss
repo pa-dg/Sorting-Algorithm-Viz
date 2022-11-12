@@ -57,9 +57,10 @@ html {
 }
 
 .main-content {
-  height: 580px;
+  min-height: 580px;
   display: flex;
   justify-content: center;
+  max-height: 100%;
 }
 
 @keyframes pulsate {
@@ -75,9 +76,9 @@ html {
 }
 
 .socials {
-  margin: 100px 0 0 0;
   display: flex;
   justify-content: center;
+  padding-top: 50px;
   color: white;
 }
 

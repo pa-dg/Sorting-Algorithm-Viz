@@ -125,9 +125,11 @@
 
 .bar {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 6.5px;
-  color: black;
-  width: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  text-indent: 2px;
+  color: rgb(0, 0, 0);
+  width: 40px;
   background-color: rgba(213, 207, 98, 0.568627451);
   border-radius: 2px;
   border: 1px solid #eded8a;
@@ -156,6 +158,9 @@
   border-radius: 10px;
   cursor: pointer;
 }
+.select-algo:focus {
+  outline: none;
+}
 
 .select-algo:hover {
   background-color: transparent;
@@ -166,7 +171,10 @@
 .graph-description {
   margin-top: 0px;
   padding: 2px;
-  font-size: 15px;
+  font-size: 16px;
+}
+.graph-description span {
+  line-height: 1.2;
 }
 
 html,
@@ -305,7 +313,7 @@ table {
   background-color: rgb(78, 93, 223);
   max-height: 20px;
   max-width: 20px;
-  padding: 16px;
+  padding: 12px;
   display: flex;
   justify-content: center;
   margin: 40px;
@@ -455,13 +463,13 @@ table {
 
 .btn-prev {
   position: relative;
-  margin-left: 10px;
+  margin-left: 20px;
   top: 230px;
 }
 
 .btn-next {
   position: absolute;
-  margin-left: 750px;
+  margin-left: 740px;
   top: 230px;
 }
 
@@ -505,9 +513,10 @@ html {
 }
 
 .main-content {
-  height: 580px;
+  min-height: 580px;
   display: flex;
   justify-content: center;
+  max-height: 100%;
 }
 
 @keyframes pulsate {
@@ -519,9 +528,9 @@ html {
   }
 }
 .socials {
-  margin: 100px 0 0 0;
   display: flex;
   justify-content: center;
+  padding-top: 50px;
   color: white;
 }
 

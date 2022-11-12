@@ -78,7 +78,7 @@ export class Sort {
 
     updatePlayStopBtn(this.isSorting);
 
-    console.log("ending array", this.array);
+    // console.log("ending array", this.array);
   }
 
   async play() {
@@ -307,7 +307,7 @@ export class Sort {
   // }
 
   async selectionSort() {
-    console.log("#", this.array);
+    // console.log("#", this.array);
     for (let i = 0; i < this.array.length; i++) {
       if (!this.isSorting) {
         resetBarsStyling();

@@ -55,7 +55,7 @@ resetBtn.addEventListener("click", function () {
   sort.reset();
 
   if (sortTwo) {
-    console.log("sortTwo", sortTwo);
+    // console.log("sortTwo", sortTwo);
     sortTwo.reset([...sort.array]);
     // TO REMOVE:
     // console.log("sortTwoArr", sortTwo.array);
@@ -99,9 +99,9 @@ selectDropdownOne.addEventListener("change", function (event) {
   sort.reset();
   if (sortTwo) {
     sortTwo.reset([...sort.array]);
-    console.log("sortTwo", sortTwo.array);
+    // console.log("sortTwo", sortTwo.array);
   }
-  console.log("sortOne", sort.array);
+  // console.log("sortOne", sort.array);
 });
 
 selectDropdownTwo.addEventListener("change", function (event) {
@@ -141,9 +141,9 @@ compareBtn.addEventListener("click", function (event) {
       sortTwo.animationArray.resetBars();
 
       // reset sortTwo
-      console.log("#", sortTwo);
+      // console.log("#", sortTwo);
       sortTwo = undefined;
-      console.log("#", sortTwo);
+      // console.log("#", sortTwo);
     }
     // sort.reset(); // reset sortOne
 
