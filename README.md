@@ -1,5 +1,5 @@
 <h1 align="center">
-    <a href="https://pa-dg.github.io/Sorting-Algorithm-Viz/" target=”_blank”>Sorting Algorithm Visualizer</a>
+    <a href="https://pa-dg.github.io/Sorting-Algorithm-Viz/" target=”_blank”>Sorting Algorithm Viz</a>
     <br>
 </h1>
 
@@ -30,15 +30,13 @@ In addition, this project will include:
 
 - Instructions
 
-## Wireframes
+## Running a Single-Sorting Algorithm
 
-<h4>Running a Single-Sorting Algorithm</h4>
+![](./src/img/sort-single-algo.gif)
 
-![WireFrame](./src/img/sort-single-algo.gif)
+## Running Double-Sorting Algorithm
 
-<h4>Running Double-Sorting Algorithm</h4>
-
-![WireFrame](./src/img/sort-double-algo.gif)
+![](./src/img/sort-double-algo.gif)
 
 ## Technologies, Libraries, APIs
 
