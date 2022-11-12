@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
+
+.instructions-container {
+  border-radius: 50%;
+  background-color: rgb(78, 93, 223);
+  max-height: 20px;
+  max-width: 20px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  margin: 40px;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.2);
+    transition: 0.3s ease-out;
+  }
+
+  #instructions-btn {
+    font-size: 22px;
+  }
+}
+
+.slider-container {
+  background-color: rgba(3, 2, 2, 0.065);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(3px);
+  transition: 0.3s;
+  overflow: hidden;
+}
+
+.slider {
+  width: 100%;
+  max-width: 800px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  background-color: #22296b;
+  border-radius: 24px;
+}
+
+#exit-btn {
+  color: rgb(159, 178, 245);
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 10px;
+  border-radius: 50%;
+  border: none;
+  height: 40px;
+  width: 40px;
+  background-color: transparent;
+  font-size: 30px;
+  font-weight: 300;
+  cursor: pointer;
+  z-index: 999;
+
+  &:hover {
+    background: rgba(146, 144, 144, 0.411);
+  }
+}
+
+.slide {
+  color: rgb(159, 178, 245);
+  font-family: "Rubik", sans-serif;
+  position: absolute;
+  transition: all 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  .slide-ref {
+    font-size: 18px;
+    font-weight: 600;
+    position: relative;
+    left: 350px;
+    margin-top: 20px;
+  }
+
+  img {
+    width: 500px;
+    height: 325px;
+  }
+}
+
+.instructions-img {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.instructions-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: rgb(203, 203, 91);
+    font-family: "Press Start 2P", cursive;
+    align-self: center;
+    margin-top: 30px;
+  }
+
+  .content-heading {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 16px 0 16px 0;
+  }
+
+  .content {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.25;
+    text-align: center;
+    max-width: 600px;
+  }
+
+  .content-list {
+    align-self: flex-start;
+    line-height: 1.5;
+    font-size: 18px;
+    font-weight: 300;
+
+    li {
+      list-style-type: circle;
+      list-style-position: inside;
+      width: 100%;
+    }
+  }
+}
+
+.btn {
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  z-index: 10;
+  font-size: 18px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 26px;
+  font-weight: 300;
+  color: rgb(159, 178, 245);
+
+  &:hover {
+    background-color: rgba(146, 144, 144, 0.411);
+    transform: scale(1.2);
+    transition: 0.3s ease-out;
+  }
+}
+
+.btn-prev {
+  position: relative;
+  margin-left: 10px;
+  top: 230px;
+}
+
+.btn-next {
+  position: absolute;
+  margin-left: 750px;
+  top: 230px;
+}
+
+.invisible {
+  display: none;
+}

@@ -1,11 +1,15 @@
 @import "styles/controls";
 @import "styles/screen";
+@import "./reset.scss";
+@import "./instructions.scss";
 
-body {
-  background-color: #04040a;
+body,
+html {
+  background-color: #010100;
   color: #ccbe3f;
-  margin: 50px;
   font-family: "Courier New", Courier, monospace;
+  width: 100%;
+  height: 100%;
 }
 
 .main {
@@ -49,7 +53,7 @@ body {
   text-align: center;
   font-size: 25px;
   font-family: "Press Start 2P", cursive;
-  animation: pulsate 10s ease-in-out infinite alternate-reverse;
+  animation: pulsate 3s ease-in-out infinite alternate-reverse;
 }
 
 .main-content {

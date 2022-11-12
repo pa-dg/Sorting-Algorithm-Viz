@@ -1,6 +1,10 @@
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap);
+/*!*****************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (1) ***!
+  \*****************************************************************************************************************************************/
 .controllers-container {
   margin: 10px;
   padding: 10px;
@@ -94,18 +98,6 @@
   margin-bottom: 20px;
 }
 
-.instructions-container {
-  border-radius: 50%;
-  background-color: rgb(78, 93, 223);
-  width: 22px;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-}
-.instructions-container #instructions-btn {
-  font-size: 22px;
-}
-
 .sorting-screen {
   min-width: 750px;
   width: 750px;
@@ -177,11 +169,313 @@
   font-size: 15px;
 }
 
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
 body {
-  background-color: #04040a;
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.instructions-container {
+  border-radius: 50%;
+  background-color: rgb(78, 93, 223);
+  max-height: 20px;
+  max-width: 20px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  margin: 40px;
+  cursor: pointer;
+}
+.instructions-container:hover {
+  transform: scale(1.2);
+  transition: 0.3s ease-out;
+}
+.instructions-container #instructions-btn {
+  font-size: 22px;
+}
+
+.slider-container {
+  background-color: rgba(3, 2, 2, 0.065);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(3px);
+  transition: 0.3s;
+  overflow: hidden;
+}
+
+.slider {
+  width: 100%;
+  max-width: 800px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  background-color: #22296b;
+  border-radius: 24px;
+}
+
+#exit-btn {
+  color: rgb(159, 178, 245);
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 10px;
+  border-radius: 50%;
+  border: none;
+  height: 40px;
+  width: 40px;
+  background-color: transparent;
+  font-size: 30px;
+  font-weight: 300;
+  cursor: pointer;
+  z-index: 999;
+}
+#exit-btn:hover {
+  background: rgba(146, 144, 144, 0.411);
+}
+
+.slide {
+  color: rgb(159, 178, 245);
+  font-family: "Rubik", sans-serif;
+  position: absolute;
+  transition: all 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.slide .slide-ref {
+  font-size: 18px;
+  font-weight: 600;
+  position: relative;
+  left: 350px;
+  margin-top: 20px;
+}
+.slide img {
+  width: 500px;
+  height: 325px;
+}
+
+.instructions-img {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.instructions-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.instructions-desc h1 {
+  font-size: 22px;
+  font-weight: 600;
+  color: rgb(203, 203, 91);
+  font-family: "Press Start 2P", cursive;
+  align-self: center;
+  margin-top: 30px;
+}
+.instructions-desc .content-heading {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 16px 0 16px 0;
+}
+.instructions-desc .content {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.25;
+  text-align: center;
+  max-width: 600px;
+}
+.instructions-desc .content-list {
+  align-self: flex-start;
+  line-height: 1.5;
+  font-size: 18px;
+  font-weight: 300;
+}
+.instructions-desc .content-list li {
+  list-style-type: circle;
+  list-style-position: inside;
+  width: 100%;
+}
+
+.btn {
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  z-index: 10;
+  font-size: 18px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 26px;
+  font-weight: 300;
+  color: rgb(159, 178, 245);
+}
+.btn:hover {
+  background-color: rgba(146, 144, 144, 0.411);
+  transform: scale(1.2);
+  transition: 0.3s ease-out;
+}
+
+.btn-prev {
+  position: relative;
+  margin-left: 10px;
+  top: 230px;
+}
+
+.btn-next {
+  position: absolute;
+  margin-left: 750px;
+  top: 230px;
+}
+
+.invisible {
+  display: none;
+}
+
+body,
+html {
+  background-color: #010100;
   color: #ccbe3f;
-  margin: 50px;
   font-family: "Courier New", Courier, monospace;
+  width: 100%;
+  height: 100%;
 }
 
 .main {
@@ -207,7 +501,7 @@ body {
   text-align: center;
   font-size: 25px;
   font-family: "Press Start 2P", cursive;
-  animation: pulsate 10s ease-in-out infinite alternate-reverse;
+  animation: pulsate 3s ease-in-out infinite alternate-reverse;
 }
 
 .main-content {

@@ -16,8 +16,10 @@ import {
   sortingScreenOne,
   selectDropdownTwo,
   descriptionTextTwo,
+  Instructions,
 } from "./sort";
 
+const instructions = new Instructions();
 const sort = new Sort();
 let sortTwo;
 

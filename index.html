@@ -16,7 +16,7 @@
 <body>
     <div class="main"></div>
 
-    <div class="instructions-container">
+    <div class="instructions-container" id="instructions-container">
         <i id="instructions-btn" class="fa-solid fa-question"></i>
     </div>
     
@@ -134,6 +134,54 @@
                 title="linkedin"><i class="fab fa-linkedin fa-2x"></i></a></div>
         <div class="social-icon"><a href="mailto:padgzmn@gmail.com" target="_blank" title="linkedin"><i
                     class="fa-solid fa-envelope fa-2x"></i></a></div>
+    </div>
+    
+    <div class="slider-container">
+        <div class="slider">
+            <button id="exit-btn">&times;</button>
+            <div class="slide">
+                <div class="slide-ref">1 / 3</div>
+                <div class="instructions-desc">
+                    <h1 class="heading">Sorting Algorithm Viz</h1>
+                    <p class="content-heading">What is it?</p>
+                    <p class="content">This application sorts an unsorted array of numbers using a particular sorting algorithm which includes bubble sort, selection sort, and quick sort. This was developed using Vanilla DOM.</p>
+                    <p class="content-heading">Features: </p>
+                    <ul class="content-list">
+                        <li>Sorting Visualizer</li>
+                        <li>Compare Two Sorting Algorithm</li>
+                        <li>Sorting runtime</li>
+                        <li>Algorithm Selector</li>
+                        <li>Adjustable input size and speed</li>
+                        <li>Start, Stop, and Reset controllers</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-ref">2 / 3</div>
+                <div class="instructions-img">
+                    <img src="./src/img/single-sorting.png" alt="">
+                </div>
+                <div class="instructions-desc">
+                    <p class="content-heading">Select sorting algorithm, size, and speed</p>
+                    <p class="content">Choose the sorting algo, size, and speed from the controller you want to see being sorted.</p>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-ref">3 / 3</div>
+                <div class="instructions-img">
+                    <img src="./src/img/single-sorting.png" alt="">
+                </div>
+                <div class="instructions-desc">
+                    <p class="content-heading">Want to compare two different algorithms?</p>
+                    <p class="content">Click 'Compare Algo' button to compare the runtime between two sorting algorithms</p>
+                </div>
+            </div>
+
+            <button class="btn btn-next">&gt;</button>
+            <button class="btn btn-prev">&lt;</button>
+        </div>
     </div>
     
     <script src="./dist/main.js"></script>
