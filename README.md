@@ -5,7 +5,7 @@
 
 ## Background
 
-This single web-application is a Sorting Algorithm Visualization engine for visualizing various sorting algorithms. This application sorts an unsorted array of numbers using a particular sorting algorithm which includes bubble sort, selection sort, and quick sort. This was developed because I struggled to visualize sorting algorithm in the beginning and had to draw it out for myself. Hence, I developed this to be used as a form of visual aid and for educational purposes.
+This is a simple Vanilla JS app called Sorting Algorithm Visualization engine for visualizing various sorting algorithms. This application sorts an unsorted array of numbers using a particular sorting algorithm which includes bubble sort, selection sort, and quick sort. This was developed because I struggled to visualize sorting algorithm in the beginning and had to draw it out for myself. Hence, I developed this to be used as a form of visual aid and for educational purposes.
 
 Check it out --> <a href="https://pa-dg.github.io/Sorting-Algorithm-Viz/" target=”_blank”>Sorting Algorithm Viz</a>
 
